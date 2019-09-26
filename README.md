@@ -1,4 +1,7 @@
 # game-project
-Kyle Test
-also cameron test
-Alex popped in to test too
+
+## Contributors
+- Kyle
+- Cameron
+- Alex
+- Calum Shepherd
