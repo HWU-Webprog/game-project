@@ -1,0 +1,28 @@
+###########################################################
+; HWU-Webprog editor config file for code consistency
+; Make sure your text editor/IDE has support for .editorconfig files!
+; => editorconfig.org
+###########################################################
+
+; this is the root (master) editor config file
+root = true
+
+###########################################################
+; common
+###########################################################
+
+[*]
+charset = utf-8
+
+end_of_line = LF
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+indent_style = space
+indent_size = 4
+
+###########################################################
+; markdown
+###########################################################
+[*.md]
+trim_trailing_whitespace = false
