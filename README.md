@@ -4,5 +4,5 @@
 - Kyle
 - Cameron
 - Alex
-- Calum Shepherd
+- Calum S
 - Calum
