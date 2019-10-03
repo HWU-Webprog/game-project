@@ -2,7 +2,8 @@
 ; HWU-Webprog editor config file for code consistency
 ; Make sure your text editor/IDE has support for
 ; .editorconfig files!
-; => editorconfig.org
+; Config file by Calum Shepherd
+; Support => editorconfig.org
 ###########################################################
 
 ; this is the root (master) editor config file
