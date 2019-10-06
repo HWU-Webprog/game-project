@@ -1,0 +1,4 @@
+/*
+This file holds all the functions relating to the player controlled
+object that is drawn to the canvas
+*/
