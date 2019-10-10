@@ -17,16 +17,16 @@ function setCanvas (){
 */
 
 /*
-NEW IMPLEMENTATION 
+NEW IMPLEMENTATION
 
 This variable is used to represent the canvas
 */
 var canvas = {
     // Creates a canvas element on the screen
-    canvas : document.createElement("CANVAS"),
+    canvas: document.createElement("CANVAS"),
 
     //start function which configures the canvas' attributes
-    start : function() {
+    start: function() {
         // set the canvas to a 200x200 pixel square
         this.canvas.width = 200;
         this.canvas.height = 200;
@@ -36,7 +36,7 @@ var canvas = {
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
     },
     //function to clear the canvas of any drawings, used before redrawing
-    clear : function(){
-        this.canvas.context.clearRect(0,0,canvas.width,canvas.height);
+    clear: function() {
+        this.canvas.context.clearRect(0, 0, canvas.width, canvas.height);
     }
 }

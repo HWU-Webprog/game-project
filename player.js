@@ -20,11 +20,11 @@ function Player(name, color, x, y){
     // This function will draw the player object on to the canvas
     this.draw = function(){
         // Set to draw onto the canvas
-        playerDraw = canvas.context;
-        // Set the color of the object to player chosen color
-        playerDraw.fillStyle = color;
-        // Create a 20x20 square at the provided position
-        playerDraw.fillRect(x,y,20,20);
+playerDraw = canvas.context;
+// Set the color of the object to player chosen color
+playerDraw.fillStyle = color;
+// Create a 20x20 square at the provided position
+playerDraw.fillRect(x, y, 20, 20);
     },
 
     this.moveLeft = function(){
