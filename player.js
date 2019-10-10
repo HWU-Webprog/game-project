@@ -11,23 +11,23 @@ Constructor for a new player object.
 @param y, corrosponds to its y position on the canvas, randomly generated
 */
 
-function Player(name, color, x, y){
+function Player(name, color, x, y) {
     this.name = name;
     this.color = color;
     this.x = x;
     this.y = y;
 
     // This function will draw the player object on to the canvas
-    this.draw = function(){
-        // Set to draw onto the canvas
-playerDraw = canvas.context;
-// Set the color of the object to player chosen color
-playerDraw.fillStyle = color;
-// Create a 20x20 square at the provided position
-playerDraw.fillRect(x, y, 20, 20);
-    },
+    this.draw = function() {
+            // Set to draw onto the canvas
+            playerDraw = canvas.context;
+            // Set the color of the object to player chosen color
+            playerDraw.fillStyle = color;
+            // Create a 20x20 square at the provided position
+            playerDraw.fillRect(x, y, 20, 20);
+        },
 
-    this.moveLeft = function(){
-        this.x -= 5;
-    }
+        this.moveLeft = function() {
+            this.x -= 5;
+        }
 }
