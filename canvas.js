@@ -34,9 +34,11 @@ var canvas = {
         this.context = this.canvas.getContext("2d");
         //adds the canvas element before the first existing node on the page
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        //Calls the update() function every 20 milliseconds
+        this.interval = setInterval(update(), 20);
     },
     //function to clear the canvas of any drawings, used before redrawing
     clear : function(){
-        this.canvas.context.clearRect(0,0,canvas.width,canvas.height);
+        this.context.clearRect(0,0,canvas.width,canvas.height);
     }
 }
