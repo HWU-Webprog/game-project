@@ -6,9 +6,25 @@ body {
     padding:35px;
 }
 
-#chatlog {
-    height: 100px;
-    width: 100px;
-    text-align: left;
-
+#chatwrapper {
+    height: 600px;
+    width: 600px;
+    padding: 25px;
+    border-width: thin;
+    border-color: #555;
+    border-style: solid;
 }
+
+#chatlog {
+    height: 90%;
+    width: 100%;
+    text-align: left;
+    border-width: thin;
+    border-color: #555;
+    border-style: solid;
+}
+
+#message {
+    height: 10%;
+    width: 100%;
+    padding: 10px;
