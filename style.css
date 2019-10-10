@@ -1,18 +1,16 @@
   h2{color: red;}
 
-
   body{
-
     font-family: arial;
     font-size: 20px;
+    padding-top: 5%;
     color: black;
-    background-color: lightgrey;
+    background-color: black;
+    background: black url(http://www2.macs.hw.ac.uk/~cjb15/HTML%20Testing/background.jpg);
+    background-repeat: repeat;
+    background-position: top;
     text-align: center;
-    line-height: normal;
-    margin: 20px;
-    padding: 60px;
-    border-style: dashed;
-
+    line-height: normal
   }
 
   input{
@@ -23,12 +21,19 @@
   }
 
   select{
-
     font-family: arial;
     font-size: 20px;
     color: white;
     background-color: grey;
+  }
 
+  #main {
+    background-color: lightgrey;
+    padding: 30px;
+    margin: 0px 20% 0px 20%;
+    border-style: solid;
+    border-width: thick;
+    border-color: grey;
   }
 
 /* Poor html and CSS by Cameron Bell */
