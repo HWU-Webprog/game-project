@@ -6,7 +6,8 @@ function wizardOfOz() {
     document.body.appendChild(newMsg);
 }
 
-function message (name, msg){
+//Data Type for message
+function Message (name, msg){
     this.name = name;
     this.timestamp = Date.now();
     this.msg = msg;
@@ -16,6 +17,18 @@ function message (name, msg){
     }
 }
 
+//Queue's messages server side
+function msgqueue(){
+    this.q = [];
+
+    this.enqueue = function(Message){
+        q.push(Message);
+    }
+
+    this.dequeue = function(){
+        q.shift();
+    }
+}
 
 //Post Request to Chat Database
 
