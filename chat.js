@@ -6,6 +6,16 @@ function wizardOfOz() {
     document.body.appendChild(newMsg);
 }
 
+function message (name, msg){
+    this.name = name;
+    this.timestamp = Date.now();
+    this.msg = msg;
+
+    this.out = function(){
+        return "("+timestamp+") "+name+": "+msg;
+    }
+}
+
 
 //Post Request to Chat Database
 

@@ -1,0 +1,14 @@
+
+body {
+    font:12px arial;
+    color: #222;
+    text-align:center;
+    padding:35px;
+}
+
+#chatlog {
+    height: 100px;
+    width: 100px;
+    text-align: left;
+
+}

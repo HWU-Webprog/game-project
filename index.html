@@ -6,16 +6,17 @@
 </head>
 
 <body>
-    <div id="log">
-        Hello World!
-        <!-- TODO: Implement Chat Log -->
-        <!-- TODO: Implement Chat style -->
-    </div>
 
-    <form>
-        <input type="text" placeholder="Send Message" />
-        <button id="ChatSend" type="submit" onclick="wizardOfOz()">Send</button>
-    </form>
+    <div id="chatwrapper">
+        <div id="chatwelcome"> Welcome to the chat</div>
+
+        <div id="chatlog"></div>
+
+        <form name="message" action="">
+            <input name="msgtext" type="text" id="msgtext" />
+            <input name="msgsend" type="submit" value="submit"/>
+        </form>
+    </div>
 
 </body>
 </html>
