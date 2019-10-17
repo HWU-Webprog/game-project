@@ -7,12 +7,18 @@
     background-color: black;
     background: black url(http://www2.macs.hw.ac.uk/~cjb15/HTMLTesting/background.jpg);
     background-repeat: repeat;
-    background-position: top;
     text-align: center;
     line-height: normal
   }
 
   input{
+    font-family: arial;
+    font-size: 20px;
+    color: white;
+    background-color: grey;
+  }
+
+  button{
     font-family: arial;
     font-size: 20px;
     color: white;
@@ -42,7 +48,7 @@
     /* box-shadow: 5px 5px 2px 2px - dosnt work on black backround, add if lighter bg is used*/
     box-shadow: inset 0 0 7px 4px;
     /*transform: rotate(-15deg);*/
-    /*transform: skew(20deg,10deg); fun*/
+    /*transform: skew(20deg,10deg);*/
   }
 
   a:link, a:visited, a:hover {
@@ -55,4 +61,4 @@
     color: Red;
   }
 
-/*Poor HTML and CSS by Cameron Bell (cjb15/RedCJB15)*/
+/*Poor CSS by Cameron Bell (cjb15/RedCJB15)*/

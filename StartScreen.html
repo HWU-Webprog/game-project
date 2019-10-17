@@ -4,25 +4,26 @@
 <head>
   <title>[game name] - Join Screen</title>
   <link rel="stylesheet" href="style.css">
+  <script src="startscripts.js"></script>
 </head>
 
 <body>
-<div id="main">
-  <h1>[Game name]</h1>
-  <h2>By Firehaus (i think)</h2>
-  <p>Enter username: <input type="text" placeholder="Username" name="username"></p>
-  <p>Select character colour:
-  <select>
-    <option value="CharRed">Red</option>
-    <option value="CharBlue">Blue</option>
-    <option value="CharGreen">Green</option>
-    <option value="CharYellow">Yellow</option>
-  </select></p>
-  <p><input type="submit" value="Join"></p>
-  <p><a href="https://github.com/HWU-Webprog/game-project" target="_blank">Github repository.</a></p>
-</div>
+  <div id="main">
+    <h1>[Game name]</h1>
+    <h2>By Firehaus</h2>
+    <p>Enter username: <input type="text" placeholder="Username" id="USERNAME"></p>
+    <p>Select character colour:
+      <select id="COLOUR">
+        <option value="Red">Red</option>
+        <option value="Blue">Blue</option>
+        <option value="Green">Green</option>
+        <option value="Yellow">Yellow</option>
+      </select>
+    </p>
+    <p><button type="button" onclick="createplayer()">Join </button></p>
+    <p><a href="https://github.com/HWU-Webprog/game-project" target="_blank">Github repository.</a></p>
+  </div>
 </body>
 
 </html>
-
-<!-- Poor HTML and CSS by Cameron Bell (cjb15/RedCJB15) -->
+<!-- Poor HTML by Cameron Bell (cjb15/RedCJB15) -->
