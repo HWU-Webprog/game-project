@@ -6,7 +6,8 @@ elements of the site.
 // Draw the canvas and draw a player object
 function start() {
   canvas.start();
-  var testplayer = new Player("TestName", "blue", 50, 50);
+        // Calls the Username and Colour from the Starts screen text box and drop down menu
+  var testplayer = new Player(document.getElementById('USERNAME').value, document.getElementById('COLOUR').value, 50, 50);
   testplayer.draw();
 
   // See drawLine call example below.
