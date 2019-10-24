@@ -21,4 +21,4 @@ function update(){
     canvas.clear();
     testplayer.y -= 1;
     testplayer.draw();
-    }
+}
