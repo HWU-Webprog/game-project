@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * Enums for defining how to create a new User object
+ */
+class NewUserStatus extends Enum
+{
+    const CREATE = 'create';
+    const FETCH = 'fetch';
+}
+
+/**
  * Class to represent a user from the database
  * @author Calum Shepherd
  */
@@ -8,17 +17,44 @@ class User
 {
     private $username;
     private $name;
-    private $password;  // needs salted
+    private $password;  // TODO: needs salted!!
 
     /**
      * Constructor for new user object instance
      * @param $u Username
      * @return New User object instance
      */
-    function __construct($u)
+    function __construct(NewUserStatus $status, String $u, String $n = null, String $p = null)
     {
-        $this->username = $u;
-        // TODO: Fetch remaining user data from the database
+        if ($status === NewUserStatus::FETCH)
+        {
+            if ($n === null || $p === null)
+            {
+                // TODO: Fetch remaining user data from the database
+            }
+            else
+                throw new Exception("Can't fetch existing user by name or password");
+        }
+        else if ($status === NewUserStatus::CREATE)
+        {
+            if ($n === null || $p === null)
+                throw new Exception("Can't create new user without name and password");
+            else
+            {
+                $this->username = $u;
+                $this->name = $n;
+                $this->password = password_hash($p, PASSWORD_BCRYPT);
+                $this::registerNewUser();
+            }
+        }
+    }
+
+    /**
+     * Insert current User object into databse
+     */
+    public static function registerNewUser()
+    {
+        // TODO: Insert user data into database
     }
 
     /**
@@ -27,7 +63,7 @@ class User
      * @param $p Password
      * @return Boolean logged in status
      */
-    public static function logIn($u, $p)
+    public static function logIn(String $u, String $p)
     {
         if ($u === $this->getUsername() && $p === $this->password)
         {
@@ -52,7 +88,7 @@ class User
      * @param $p Inputted password
      * @return Boolean password validity status
      */
-    public function checkPassword($p)
+    public function checkPassword(String $p)
     {
         if ($p === $this->password)
             return true;
