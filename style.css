@@ -1,6 +1,8 @@
-  h2{color: red;}
+h2 {
+    color: red;
+}
 
-  body{
+body {
     font-family: arial;
     font-size: 20px;
     color: black;
@@ -9,34 +11,19 @@
     background-repeat: repeat;
     text-align: center;
     line-height: normal
-  }
+}
 
-  input{
-    font-family: arial;
+input, button, select {
     font-size: 20px;
     color: white;
     background-color: grey;
-  }
+}
 
-  button{
-    font-family: arial;
-    font-size: 20px;
-    color: white;
-    background-color: grey;
-  }
-
-  input[type=text] {
+input[type=text] {
     width: 30%;
-  }
+}
 
-  select{
-    font-family: arial;
-    font-size: 20px;
-    color: white;
-    background-color: grey;
-  }
-
-  #main {
+#main {
     background-color: lightgrey;
     border-style: solid;
     border-width: thick;
@@ -49,16 +36,16 @@
     box-shadow: inset 0 0 7px 4px;
     /*transform: rotate(-15deg);*/
     /*transform: skew(20deg,10deg);*/
-  }
+}
 
-  a:link, a:visited, a:hover {
-    color: Black;
+a:link, a:visited, a:hover {
+    color: black;
     background-color: transparent;
     text-decoration: underline;
-  }
+}
 
-  a:hover {
-    color: Red;
-  }
+a:hover {
+    color: red;
+}
 
 /*Poor CSS by Cameron Bell (cjb15/RedCJB15)*/
