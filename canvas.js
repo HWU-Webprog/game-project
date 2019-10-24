@@ -17,16 +17,16 @@ function setCanvas (){
 */
 
 /*
-NEW IMPLEMENTATION 
+NEW IMPLEMENTATION
 
 This variable is used to represent the canvas
 */
 var canvas = {
     // Creates a canvas element on the screen
-    canvas : document.createElement("CANVAS"),
+    canvas: document.createElement("CANVAS"),
 
     //start function which configures the canvas' attributes
-    start : function() {
+    start: function() {
         // set the canvas to a 200x200 pixel square
         this.canvas.width = 200;
         this.canvas.height = 200;

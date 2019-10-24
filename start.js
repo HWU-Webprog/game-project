@@ -1,10 +1,14 @@
-/*
-This file is for holding the functions used to set up many other
-elements of the site.
-*/
+
+/**
+ * This file is for holding the functions used to set up many other
+ * elements of the site.
+ */
 var testplayer
 
-// Draw the canvas and draw a player object
+
+/**
+ * Function to draw the canvas and draw a player object
+ */
 function start() {
   canvas.start();
   testplayer = new player("TestName", "blue", 50, 50);

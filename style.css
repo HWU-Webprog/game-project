@@ -1,0 +1,51 @@
+h2 {
+    color: red;
+}
+
+body {
+    font-family: arial;
+    font-size: 20px;
+    color: black;
+    background-color: black;
+    background: black url('background.jpg');
+    background-repeat: repeat;
+    text-align: center;
+    line-height: normal
+}
+
+input, button, select {
+    font-size: 20px;
+    color: white;
+    background-color: grey;
+}
+
+input[type=text] {
+    width: 30%;
+}
+
+#main {
+    background-color: lightgrey;
+    border-style: solid;
+    border-width: thick;
+    border-color: grey;
+    width: 40%;
+    margin: 10% 30% 10% 30%;
+    padding: 10px 0 10px 0;
+    border-radius: 30px;
+    /* box-shadow: 5px 5px 2px 2px - dosnt work on black backround, add if lighter bg is used*/
+    box-shadow: inset 0 0 7px 4px;
+    /*transform: rotate(-15deg);*/
+    /*transform: skew(20deg,10deg);*/
+}
+
+a:link, a:visited, a:hover {
+    color: black;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: red;
+}
+
+/*Poor CSS by Cameron Bell (cjb15/RedCJB15)*/
