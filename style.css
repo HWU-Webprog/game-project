@@ -48,4 +48,12 @@ a:hover {
     color: red;
 }
 
+i .mr {
+    margin-right: 0.25rem;
+}
+
+i.ml {
+    margin-left: 0.25rem;
+}
+
 /*Poor CSS by Cameron Bell (cjb15/RedCJB15)*/
