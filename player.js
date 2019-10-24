@@ -13,6 +13,8 @@
  * @param      {int}  y         Starting Y coord
  */
 function Player(name, color, x, y) {
+    this.speedX = 0;
+    this.speedY = 0;
     this.name = name;
     this.color = color;
     this.x = x;
@@ -23,17 +25,23 @@ function Player(name, color, x, y) {
      */
     this.draw = function() {
         // Set to draw onto the canvas
-        playerDraw = canvas.context;
+        player = canvas.context;
         // Set the color of the object to player chosen color
-        playerDraw.fillStyle = color;
+        player.fillStyle = color;
         // Create a 20x20 square at the provided position
-        playerDraw.fillRect(x, y, 20, 20);
-    },
 
-    /**
-     * Moves Player object left
-     */
-    this.moveLeft = function() {
-        this.x -= 5;
+        player.fillRect(this.x,this.y,20,20);
+    },
+    this.moveLeft = function(){
+        this.x -= this.speedX;
+    },
+    this.moveRight = function(){
+        this.x += this.speedX;
+    },
+    this.moveUp = function(){
+        this.y -= this.speedY;
+    },
+    this.moveDown = function(){
+        this.y += this.speedY;
     }
 }
