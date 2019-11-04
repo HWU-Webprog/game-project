@@ -57,7 +57,7 @@ function Player(name, color, x, y) {
 
             this.onCooldown = true;
 
-            setInterval(this.resetspeed, 2000);
+            setTimeout(this.resetspeed, 2000);
         }
     }
 }
