@@ -19,6 +19,7 @@ function Player(name, color, x, y) {
     this.color = color;
     this.x = x;
     this.y = y;
+    this.onCooldown = false;
 
     /**
      * Draws Player object on canvas
@@ -43,5 +44,20 @@ function Player(name, color, x, y) {
     },
     this.moveDown = function(){
         this.y += this.speedY;
+    },
+    this.resetspeed = function(){
+        this.speedX = 0;
+        this.speedY = 0;
+        this.onCooldown = false;
+    },
+    this.dash = function(){
+        if (this.onCooldown == false) {
+            this.speedX = 2*this.speedX;
+            this.speedy = 2*this.speedy;
+
+            this.onCooldown = true;
+
+            setInterval(this.resetspeed, 2000);
+        }
     }
 }
