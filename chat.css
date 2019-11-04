@@ -39,6 +39,7 @@ body {
     height: 90%;
     width: 80%;
     float: left;
+    overflow: hidden;
 }
 
 #messageSend{
