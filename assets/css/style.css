@@ -7,7 +7,7 @@ body {
     font-size: 20px;
     color: black;
     background-color: black;
-    background: black url('background.jpg');
+    background: black url('/assets/img/background.jpg');
     background-repeat: repeat;
     text-align: center;
     line-height: normal
