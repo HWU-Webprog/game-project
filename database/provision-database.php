@@ -25,14 +25,23 @@ if (isset($_GET['type']))
                     "password" TEXT
                 )');
                 // insert test user
-                $stmt = $db->prepare('INSERT INTO users("username","name","password") VALUES(:username,:name,:password');
+                $stmt = $db->prepare('INSERT INTO users("username","name","password") VALUES(:username,:name,:password)');
                 $user = [
                     'username'  => 'test',
                     'name'      => 'Test User',
                     'password'  => password_hash('password', PASSWORD_DEFAULT)
                 ];
-                foreach ($user as $property) $stmt->bindValue(':'.$property, $user[$property]);
-            } catch (Exception $e) { echo $e->getMessage(); }
+                $stmt->bindValue(':username', $user['username']);
+                $stmt->bindValue(':name', $user['name']);
+                $stmt->bindValue(':password', $user['password']);
+
+                $result = $stmt->execute();
+                var_dump($result->fetchArray());
+            }
+            catch (Exception $e)
+            {
+                echo $e->getMessage();
+            }
             break;
 
         case "down":
