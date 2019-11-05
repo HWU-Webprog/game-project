@@ -1,20 +1,9 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>Firehaus</title>
-
-    <link rel="stylesheet" href="style.css">
-    <script src="startscripts.js"></script>
-    <script src="https://kit.fontawesome.com/c000864a8c.js" crossorigin="anonymous"></script>
-</head>
-
-<body>
+<?php require 'assets/layout/header.php'; ?>
     <div id="main">
-        <h1>[Game name]</h1>
-        <h2>By Firehaus</h2>
+        <h1>Firehaus</h1>
         <p>Enter username: <input type="text" placeholder="Username" id="USERNAME"></p>
-        <p>Select character colour:
+        <p>
+            Select character colour:
             <select id="COLOUR">
                 <option value="Red">Red</option>
                 <option value="Blue">Blue</option>
@@ -27,7 +16,4 @@
             <i class="fab fa-fw fa-github mr"></i>Open Source!
         </a></p>
     </div>
-</body>
-
-</html>
-<!-- Poor HTML by Cameron Bell (cjb15/RedCJB15) -->
+<?php require 'assets/layout/footer.php'; ?>

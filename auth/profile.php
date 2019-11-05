@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>[game name] - User Profile</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<!--Placeholder Images. Will Need Changing-->
-<body>
+<?php require 'assets/layout/header.php'; ?>
     <div id="leftWrapper">
         <div class="imageContainer" id="profileImageContainer">
             <!--Javascript to set the image to what was saved-->
@@ -52,6 +43,5 @@
             </div>
         </div>
     </div>
-</body>
 
-</html>
+<?php require 'assets/layout/footer.php'; ?>
