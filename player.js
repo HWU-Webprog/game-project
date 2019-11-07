@@ -46,14 +46,19 @@ function Player(name, color, x, y) {
         // Move object relative to velocity
         this.x += this.velocityX;
         this.y += this.velocityY;
-
+        this.traction();
         this.checkBounds();
-        
+        this.speedCap();        
     
         // Create a 20x20 square at the provided position
         player.fillRect(this.x,this.y,20,20);
     },
+    /**
+     * If the player moves out of bounds of the canvas, loop
+     */
     this.checkBounds = function(){
+        /***** Wrapping *****/
+        /*
         if(this.y > 500){
             this.y = 0;
         } else if (this.y < -20){
@@ -64,36 +69,70 @@ function Player(name, color, x, y) {
             this.x = 0;
         } else if (this.x < -20){
             this.x = 500;
+        }*/
+
+        /***** Bounce *****/
+        // y bounces at: 0 , 480
+        // x bounces at: 0 , 480
+        if(this.y > 480){
+            this.velocityY = -this.velocityY;
+        } else if (this.y < 0){
+            this.velocityY = -this.velocityY;
+        }
+
+        if(this.x > 480){
+            this.velocityX = -this.velocityX;
+        } else if (this.x < 0){
+            this.velocityX = -this.velocityX;
+        }
+        
+    },
+    this.traction = function(){
+        if(this.velocityX > 0){
+            this.velocityX -= 0.05;
+        } else if (this.velocityX < 0){
+            this.velocityX += 0.05;
+        }
+
+        if(this.velocityY > 0){
+            this.velocityY -= 0.05;
+        } else if (this.velocityY < 0){
+            this.velocityY += 0.05;
         }
     },
-    this.boost = function(){
+    this.speedCap = function(){
+        if (this.velocityX > 5){
+            this.velocityX = 5
+        } else if (this.velocityX < -5){
+            this.velocityX = -5;
+        }
 
-    },
-    this.noboost = function(){
-        
+        if (this.velocityY > 5){
+            this.velocityY = 5;
+        } else if (this.velocityY < -5){
+            this.velocityY = -5;
+        }
     }
 }
 
+// increase velocity to the left
 function moveLeft(){
     testplayer.velocityX -= 0.5; 
 }
 
+// increase velocity to the right
 function moveRight(){
     testplayer.velocityX += 0.5;
 }
 
+// increase velocity upwards
 function moveUp() {
     testplayer.velocityY -= 0.5;
 }
 
+// increase velocity downwards
 function moveDown(){
     testplayer.velocityY += 0.5;
-}
-
-function resetspeed(){
-    testplayer.speedX = 0;
-    testplayer.speedY = 0;
-    testplayer.onCooldown = false;
 }
 
 function dash(){
@@ -137,9 +176,15 @@ function dash(){
         default:
             break;
     }
+
+    // set a time for boost to be active, 2 seconds with this function
+    setTimeout(function(){ 
+        testplayer.boostActive = false;
+    }, 2000);
 }
 
 function getDirection(){
+    // variables for easy of readiblity
     var velX = testplayer.velocityX;
     var velY = testplayer.velocityY;
 
