@@ -1,10 +1,12 @@
-<?php require '../assets/layout/header.php'; ?>
+<?php $db = new SQLite3('database.sqlite', SQLITE3_OPEN_CREATE | SQLITE3_OPEN_READWRITE);
+
+require '../assets/layout/header.php'; ?>
     <div id="leftWrapper">
         <div class="imageContainer" id="profileImageContainer">
             <!--Javascript to set the image to what was saved-->
             <img src="../assets/img/Woolooloo.jpg" alt="ProfilePic">
             <div class="editButton" id="profileImageContainerEdit">
-                <img src="img/edit-button-512.png" alt="Edit Image">
+                <img src="../assets/img/edit-button-512.png" alt="Edit Image">
                 <!--Javascript to Change the image-->
             </div>
         </div>

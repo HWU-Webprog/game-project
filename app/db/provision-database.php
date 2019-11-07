@@ -1,5 +1,15 @@
 <?php
 
+class SQLiteCreateTables
+{
+    private $pdo;
+
+    public function __construct($pdo)
+    {
+        $this->pdo = $pdo;
+    }
+}
+
 /**
  * Database provisioning script
  * @author Calum Shepherd
