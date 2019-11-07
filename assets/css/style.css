@@ -164,3 +164,63 @@ img {
 }
 
 /*Profile Screen CSS Added by Alexander de Bruin (cad11/MagnificentBubble)*/
+
+.chatlog{
+    height: 90%;
+    width: 100%;
+    text-align: left;
+    margin: 1px;
+    overflow: scroll;
+}
+
+.message {
+    padding: 10px;
+    text-align: left;
+}
+
+#chatwrapper {
+    font-family: arial;
+    font-size: 11px;
+    color: black;
+    text-align: center;
+    line-height: normal;
+
+    position:fixed;
+    right: 0%;
+    bottom: 0%;
+
+    height: 25%;
+    width: 25%;
+    
+    background-color: lightgrey;
+    border-style: solid;
+    border-width: thick;
+    border-color: grey;
+    margin: 10px 10px 10px 10px;
+    padding: 10px 0 10px 0;
+    border-radius: 30px;
+    box-shadow: inset 0 0 7px 4px;
+}
+
+#messageField {
+    height: 10px;
+    width: 100%;
+    padding: 10px;
+    margin: 10px;
+    overflow: hidden;
+}
+
+#messageInput{
+    height: 90%;
+    width: 80%;
+    margin: 10px;
+    float: left;
+    overflow: hidden;
+}
+
+#messageSend{
+    height: 100%;
+    width: 10%;
+}
+
+/* Chat CSS by C Alexander de Bruin (cad11/MagnificentBubble) */
