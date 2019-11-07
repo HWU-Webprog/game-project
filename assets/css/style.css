@@ -166,11 +166,12 @@ img {
 /*Profile Screen CSS Added by Alexander de Bruin (cad11/MagnificentBubble)*/
 
 .chatlog{
-    height: 90%;
+    display: flex;
+    height: 100%;
     width: 100%;
     text-align: left;
     margin: 1px;
-    overflow: scroll;
+    overflow-y: auto;
 }
 
 .message {
@@ -178,7 +179,7 @@ img {
     text-align: left;
 }
 
-#chatwrapper {
+#chatWrapper {
     font-family: arial;
     font-size: 11px;
     color: black;
@@ -189,10 +190,11 @@ img {
     right: 0%;
     bottom: 0%;
 
-    height: 25%;
-    width: 25%;
+    height: 40%;
+    width: 40%;
     
     background-color: lightgrey;
+    opacity: 0.6;
     border-style: solid;
     border-width: thick;
     border-color: grey;
@@ -202,25 +204,38 @@ img {
     box-shadow: inset 0 0 7px 4px;
 }
 
+#chatWrapper:hover{
+    opacity: 1;
+}
+
+#chatContainer {
+
+    display: block;
+    position:absolute;
+    height:auto;
+    bottom:0;
+    top:0;
+    left:0;
+    right:0;
+    margin-top:10px;
+    margin-bottom:50px;
+    margin-right:25px;
+    margin-left:20px;
+
+}
+
 #messageField {
+    display: flex;
+    margin-top: 5px;
     height: 10px;
     width: 100%;
-    padding: 10px;
-    margin: 10px;
     overflow: hidden;
 }
 
 #messageInput{
-    height: 90%;
-    width: 80%;
-    margin: 10px;
-    float: left;
-    overflow: hidden;
-}
-
-#messageSend{
     height: 100%;
-    width: 10%;
+    width: 100%;
+    overflow: hidden;
 }
 
 /* Chat CSS by C Alexander de Bruin (cad11/MagnificentBubble) */
