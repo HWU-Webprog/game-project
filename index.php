@@ -1,4 +1,4 @@
-<?php require 'assets/layout/header.php'; ?>
+<?php require '../assets/layout/header.php'; ?>
     <div id="main">
         <h1>Firehaus</h1>
         <p>Enter username: <input type="text" placeholder="Username" id="USERNAME"></p>
@@ -16,4 +16,4 @@
             <i class="fab fa-fw fa-github mr"></i>Open Source!
         </a></p>
     </div>
-<?php require 'assets/layout/footer.php'; ?>
+<?php require '../assets/layout/footer.php'; ?>

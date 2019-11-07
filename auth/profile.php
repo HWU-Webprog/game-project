@@ -1,8 +1,8 @@
-<?php require 'assets/layout/header.php'; ?>
+<?php require '../assets/layout/header.php'; ?>
     <div id="leftWrapper">
         <div class="imageContainer" id="profileImageContainer">
             <!--Javascript to set the image to what was saved-->
-            <img src="img/Woolooloo.jpg" alt="ProfilePic">
+            <img src="../assets/img/Woolooloo.jpg" alt="ProfilePic">
             <div class="editButton" id="profileImageContainerEdit">
                 <img src="img/edit-button-512.png" alt="Edit Image">
                 <!--Javascript to Change the image-->
@@ -15,7 +15,7 @@
                 Nisl felis volutpat a aliquam elementum nullam eget augue auctor hac, lacinia curae purus montes sapien sociosqu per suspendisse natoque, nam potenti ut nulla in pellentesque donec varius tincidunt. Ligula laoreet ridiculus tempor donec montes varius class aptent nec eget, aliquam eu fusce velit ut tristique porttitor lacinia venenatis vulputate, facilisis pharetra iaculis tempus fringilla litora dignissim elementum platea.
                 Litora habitant interdum laoreet viverra ante sodales ullamcorper suscipit, est sociosqu inceptos pretium torquent platea mauris, at morbi in libero habitasse imperdiet bibendum. Auctor lacus feugiat euismod viverra orci vel litora, himenaeos gravida risus velit vestibulum nulla sodales, elementum semper purus justo dignissim luctus. Velit aliquet lobortis sapien condimentum suscipit vivamus, tortor litora sem pulvinar in enim convallis, tellus mattis himenaeos et aenean gravida, lectus morbi arcu posuere dis.
             <div class="editButton" id="profileDescriptionEdit">
-                <img src="img/edit-button-512.png" alt="Edit Description">
+                <img src="../assets/img/edit-button-512.png" alt="Edit Description">
                 <!--Javascript to Edit the description-->
             </div>
         </div>
@@ -44,4 +44,4 @@
         </div>
     </div>
 
-<?php require 'assets/layout/footer.php'; ?>
+<?php require '../assets/layout/footer.php'; ?>
