@@ -16,6 +16,9 @@ const direction = {
     DEFAULT: 'stationary'
 }
 
+// array for holding keys pressed
+var keys = {};
+
 /**
  * Constructor for new Player object
  *
@@ -32,7 +35,10 @@ function Player(name, color, x, y) {
     this.y = y;
     this.velocityX = 0;
     this.velocityY = 0;
+    this.tractionAmount = 0.025;
     this.boostActive = false;
+    this.myWidth = 20;
+    this.myHeight = 20;
 
     /**
      * Draws Player object on canvas
@@ -46,12 +52,21 @@ function Player(name, color, x, y) {
         // Move object relative to velocity
         this.x += this.velocityX;
         this.y += this.velocityY;
+
+
+        if(!this.boostActive){
+            // keep the player from going past a set speed while boost is not active
+            this.speedCap(); 
+        }
+
+        // applies traction to object, constantly slowing it
         this.traction();
-        this.checkBounds();
-        this.speedCap();        
+
+        // check if player object has collided with boundaries
+        this.checkBounds();       
     
         // Create a 20x20 square at the provided position
-        player.fillRect(this.x,this.y,20,20);
+        player.fillRect(this.x,this.y,this.myWidth,this.myHeight);
     },
     /**
      * If the player moves out of bounds of the canvas, loop
@@ -89,15 +104,15 @@ function Player(name, color, x, y) {
     },
     this.traction = function(){
         if(this.velocityX > 0){
-            this.velocityX -= 0.05;
+            this.velocityX -= this.tractionAmount;
         } else if (this.velocityX < 0){
-            this.velocityX += 0.05;
+            this.velocityX += this.tractionAmount;
         }
 
         if(this.velocityY > 0){
-            this.velocityY -= 0.05;
+            this.velocityY -= this.tractionAmount;
         } else if (this.velocityY < 0){
-            this.velocityY += 0.05;
+            this.velocityY += this.tractionAmount;
         }
     },
     this.speedCap = function(){
@@ -135,54 +150,64 @@ function moveDown(){
     testplayer.velocityY += 0.5;
 }
 
+// A function which causes the player to experience a boost in speed for a short time
 function dash(){
     var prevX = testplayer.velocityX;
-    var prevX = testplayer.velocityY;
+    var prevY = testplayer.velocityY;
+    var prevTract = testplayer.tractionAmount;
+    var boostAmount = 5;
 
     testplayer.boostActive = true;
     
     var currentDirection = getDirection();
     console.log(currentDirection);
 
+    // increase traction amount to slow down after boost
+    testplayer.tractionAmount = 2 * testplayer.tractionAmount;
+
     switch(currentDirection){
         case "north":
-            testplayer.velocityY -= 10;
+            testplayer.velocityY -= boostAmount;
             break;
         case "north east":
-            testplayer.velocityY -= 10;
-            testplayer.velocityX += 10;
+            testplayer.velocityY -= boostAmount;
+            testplayer.velocityX += boostAmount;
             break;
         case "east":
-            testplayer.velocityX += 10;
+            testplayer.velocityX += boostAmount;
             break;
         case "south east":
-            testplayer.velocityY += 10;
-            testplayer.velocityX += 10;
+            testplayer.velocityY += boostAmount;
+            testplayer.velocityX += boostAmount;
             break;
         case "south":
-            testplayer.velocityY += 10;
+            testplayer.velocityY += boostAmount;
             break;
         case "south west":
-            testplayer.velocityY += 10;
-            testplayer.velocityX -= 10;
+            testplayer.velocityY += boostAmount;
+            testplayer.velocityX -= boostAmount;
             break;
         case "west":
-            testplayer.velocityX -= 10;
+            testplayer.velocityX -= boostAmount;
             break;
         case "north west":
-            testplayer.velocityY -= 10;
-            testplayer.velocityX -= 10;
+            testplayer.velocityY -= boostAmount;
+            testplayer.velocityX -= boostAmount;
             break;
         default:
             break;
     }
 
-    // set a time for boost to be active, 2 seconds with this function
+    // set a time for boost to be active, 3 seconds with this function, then return to previous speed
     setTimeout(function(){ 
         testplayer.boostActive = false;
-    }, 2000);
+        testplayer.tractionAmount = prevTract;
+    }, 3000);
 }
 
+/**
+ * Function to get the direction the player object is currently travelling in
+ */
 function getDirection(){
     // variables for easy of readiblity
     var velX = testplayer.velocityX;
@@ -223,18 +248,35 @@ function getDirection(){
     }
 }
 
+// Key is down
 $(document).keydown(function(e) {
-    if(e.which == 37)
+    // set keys array to true
+    keys[e.which] = true;
+
+    // determine which key is being pressed
+
+    // left arrow
+    if(keys && keys[37])
         moveLeft();
 
-    if(e.which == 38)
+    // up arrow
+    if(keys && keys[38])
         moveUp();
         
-    if(e.which == 39)
+    // right arrow
+    if(keys && keys[39])
         moveRight();
     
-    if(e.which == 40)
+    // down arrow
+    if(keys && keys[40])
         moveDown();
-    if(e.which == 81)
+
+    // Q, only usable while boost is not active
+    if(keys && keys[81] && (!testplayer.boostActive))
         dash();
+})
+
+// If a key is no longer being pressed, set keys array to false
+$(document).keyup(function(e) {
+    keys[e.which] = false;
 })
