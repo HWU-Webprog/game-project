@@ -1,6 +1,4 @@
-<?php $db = new SQLite3('database.sqlite', SQLITE3_OPEN_CREATE | SQLITE3_OPEN_READWRITE);
-
-require '../assets/layout/header.php'; ?>
+<?php require '../assets/layout/header.php'; ?>
     <div id="leftWrapper">
         <div class="imageContainer" id="profileImageContainer">
             <!--Javascript to set the image to what was saved-->

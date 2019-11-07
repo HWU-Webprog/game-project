@@ -1,3 +1,5 @@
+<?php require __DIR__.'/../../vendor/autoload.php'; ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -6,7 +8,7 @@
         Firehaus
     </title>
 
-    <link rel="stylesheet" href="<?= Config::DOMAIN ?>/assets/css/style.css">
+    <link rel="stylesheet" href="<?= App\Config::DOMAIN ?>/assets/css/style.css">
 </head>
 
 <body>

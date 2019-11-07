@@ -1,4 +1,4 @@
-<?php require 'vendor/autoload.php'; ?>
+<?php include 'assets/layout/header.php'; ?>
 
     <div id="main">
         <h1>Firehaus</h1>
