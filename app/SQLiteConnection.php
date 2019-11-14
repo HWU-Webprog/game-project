@@ -8,7 +8,7 @@ class SQLiteConnection
     /**
      * PDO object
      */
-    protected $pdo;
+    public $pdo;
 
     /**
      * Connects to sqlite database
@@ -17,20 +17,13 @@ class SQLiteConnection
      */
     public function connect()
     {
-        if ($this->pdo == null)
+        try
         {
-            try
-            {
-                $this->pdo = new \PDO("sqlite:" . Config::SQLITE_PATH);
-            }
-            catch (\PDOException $e)
-            {
-                echo 'PDO Connection error: '.$e->getMessage();
-            }
+            $this->pdo = new \PDO("sqlite:" . __DIR__.'/'.Config::SQLITE_PATH);
         }
-        else
+        catch (\PDOException $e)
         {
-            echo 'No connection object specified';
+            echo 'PDO Connection error: '.$e->getMessage();
         }
 
         return $this->pdo;

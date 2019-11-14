@@ -1,14 +1,10 @@
 <?php
 
-class SQLiteCreateTables
-{
-    private $pdo;
+namespace App;
 
-    public function __construct($pdo)
-    {
-        $this->pdo = $pdo;
-    }
-}
+require __DIR__.'/../../vendor/autoload.php';
+
+use App\SQLiteProvision as SQLiteProvision;
 
 /**
  * Database provisioning script
@@ -20,33 +16,15 @@ class SQLiteCreateTables
  *          down    to delete tables
  */
 
-$db = new SQLite3('database.sqlite', SQLITE3_OPEN_CREATE | SQLITE3_OPEN_READWRITE);
-
 if (isset($_GET['type']))
 {
+    $db = new SQLiteProvision();
+
     switch ($_GET['type'])
     {
         case "up":
             try {
-                $db->exec('CREATE TABLE IF NOT EXISTS users(
-                    "id" INTEGER PRIMARY KEY,
-                    "username" TEXT,
-                    "name" TEXT,
-                    "password" TEXT
-                )');
-                // insert test user
-                $stmt = $db->prepare('INSERT INTO users("username","name","password") VALUES(:username,:name,:password)');
-                $user = [
-                    'username'  => 'test',
-                    'name'      => 'Test User',
-                    'password'  => password_hash('password', PASSWORD_DEFAULT)
-                ];
-                $stmt->bindValue(':username', $user['username']);
-                $stmt->bindValue(':name', $user['name']);
-                $stmt->bindValue(':password', $user['password']);
-
-                $result = $stmt->execute();
-                var_dump($result->fetchArray());
+                $db->up();
             }
             catch (Exception $e)
             {
@@ -55,7 +33,7 @@ if (isset($_GET['type']))
             break;
 
         case "down":
-            $db->exec('DROP TABLE IF EXISTS "users"');
+            $db->down();
             break;
 
         default:
