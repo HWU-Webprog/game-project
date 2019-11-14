@@ -10,7 +10,8 @@ body {
     background: black url('../img/background.jpg');
     background-repeat: repeat;
     text-align: center;
-    line-height: normal
+    line-height: normal;
+    margin: 0;
 }
 
 input, button, select {
@@ -161,6 +162,47 @@ img {
 
 #profileLogContainer{
     width: 100%;
+}
+
+.header {
+    width: 100%;
+    height: 55px;
+    background-color: #353a3f;
+    padding-top: 2px;
+    overflow: hidden;
+    font-size: 18px;
+}
+
+.header p {
+    text-align: left;
+    color: #fff;
+}
+
+.menu-left {
+    padding-left: 30px;
+    float: left;
+}
+
+.menu-right {
+    padding-right: 30px;
+    float: right;
+}
+
+a.nav-link {
+    color: #eee;
+    text-decoration: none;
+}
+
+a:hover.nav-link {
+    color: #bbb;
+}
+
+.icon-padding-right {
+    margin-left: 2px;
+}
+
+.icon-padding-left {
+    margin-right: 2px;
 }
 
 /*Profile Screen CSS Added by Alexander de Bruin (cad11/MagnificentBubble)*/
