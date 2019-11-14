@@ -27,4 +27,4 @@
             <i class="fab fa-fw fa-github mr"></i>Open Source!
         </a></p>
     </div>
-<?php require '../assets/layout/footer.php'; ?>
+<?php require 'assets/layout/footer.php'; ?>
