@@ -1,5 +1,7 @@
 <?php
 
+namespace Auth;
+
 /**
  * Enums for defining how to create a new User object
  */
