@@ -15,7 +15,7 @@
         <p><button type="button" onclick="createplayer()">Join </button></p>
         <hr>
 
-        <form action="/auth/profile.php" method="GET">
+        <form action="/auth/profile/profile-view.php" method="GET">
             <p>
                 Search for profile: <input type="text" placeholder="Username" name="u">
                 <button type="submit">Go</button>
