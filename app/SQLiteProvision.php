@@ -31,23 +31,13 @@ class SQLiteProvision
                 "username" TEXT PRIMARY KEY,
                 "name" TEXT,
                 "password" TEXT,
-                "bio" TEXT,
-                "wins" INTEGER,
-                "average_pos" REAL
+                "bio" TEXT
             )',
-            'CREATE TABLE IF NOT EXISTS games(
-                "id" INTEGER PRIMARY KEY,
-                "started" INTEGER,
-                "ended" INTEGER
+            'CREATE TABLE IF NOT EXISTS kill_log(
+                "killer" TEXT,
+                "victim" TEXT,
+                "timestamp" DATETIME
             )',
-            'CREATE TABLE IF NOT EXISTS game_results(
-                "users.username" TEXT,
-                "games.id" INTEGER,
-                "kills" INTEGER,
-                "finish_pos" INTEGER,
-                "killed_by" TEXT,
-                PRIMARY KEY ("users.username", "games.id")
-            )'
         ];
         foreach ($commands as $command) {
             $this->pdo->exec($command);
