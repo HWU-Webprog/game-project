@@ -2,12 +2,14 @@
 
 require __DIR__.'/../../assets/layout/header.php';
 
-use \Auth\Profile as Profile;
+use \Auth\Profile;
+use \Auth\Auth;
 
 if (isset($_GET['u']) && $_GET['u'])
     $profile = new Profile($_GET['u']);
 else
-    $profile = new Profile($_GET['u']);
+    // get the authenticated user's profile
+    $profile = new Profile(Auth::loggedIn());
 
 if (empty($profile->name))
 { ?>
