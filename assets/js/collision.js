@@ -67,7 +67,7 @@ function intersects(player1, player2){
  * BOUNCE
  */
 function hasCollided(player1, player2){
-  if( ( intersects(player1, player2)) {
+  if( ( intersects(player1, player2) ) ) {
     if((player1.boostActive && !player2.boostActive) || (!player1.boostActive && player2.boostActive)){
       kill(player1, player2);
     }
