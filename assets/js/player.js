@@ -56,15 +56,15 @@ function Player(name, color, x, y) {
 
         if(!this.boostActive){
             // keep the player from going past a set speed while boost is not active
-            this.speedCap(); 
+            this.speedCap();
         }
 
         // applies traction to object, constantly slowing it
         this.traction();
 
         // check if player object has collided with boundaries
-        this.checkBounds();       
-    
+        this.checkBounds();
+
         // Create a 20x20 square at the provided position
         player.fillRect(this.x,this.y,this.myWidth,this.myHeight);
     },
@@ -72,19 +72,6 @@ function Player(name, color, x, y) {
      * If the player moves out of bounds of the canvas, loop
      */
     this.checkBounds = function(){
-        /***** Wrapping *****/
-        /*
-        if(this.y > 500){
-            this.y = 0;
-        } else if (this.y < -20){
-            this.y = 500;
-        }
-
-        if(this.x > 500){
-            this.x = 0;
-        } else if (this.x < -20){
-            this.x = 500;
-        }*/
 
         /***** Bounce *****/
         // y bounces at: 0 , 480
@@ -100,7 +87,7 @@ function Player(name, color, x, y) {
         } else if (this.x < 0){
             this.velocityX = -this.velocityX;
         }
-        
+
     },
     this.traction = function(){
         if(this.velocityX > 0){
@@ -132,7 +119,7 @@ function Player(name, color, x, y) {
 
 // increase velocity to the left
 function moveLeft(){
-    testplayer.velocityX -= 0.5; 
+    testplayer.velocityX -= 0.5;
 }
 
 // increase velocity to the right
@@ -169,7 +156,7 @@ function dash(){
 
 
     // set a time for boost to be active, 3 seconds with this function, then return to previous speed
-    setTimeout(function(){ 
+    setTimeout(function(){
         testplayer.boostActive = false;
         testplayer.tractionAmount = prevTract;
     }, 3000);
@@ -179,6 +166,7 @@ function dash(){
 function murder(){
     //murder player and kick them from current game. Maybe respawn
 }
+
 
 // Key is down
 $(document).keydown(function(e) {
@@ -194,11 +182,11 @@ $(document).keydown(function(e) {
     // up arrow
     if(keys && keys[38])
         moveUp();
-        
+
     // right arrow
     if(keys && keys[39])
         moveRight();
-    
+
     // down arrow
     if(keys && keys[40])
         moveDown();
@@ -211,4 +199,4 @@ $(document).keydown(function(e) {
 // If a key is no longer being pressed, set keys array to false
 $(document).keyup(function(e) {
     keys[e.which] = false;
-})
+});
