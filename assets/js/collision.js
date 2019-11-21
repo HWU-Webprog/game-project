@@ -1,4 +1,9 @@
 /**
+ * Player 1 is use used as the frame of reference for calculations in the following code
+ */
+
+
+/**
  *  BOUNCE
  * Add Velocities Together
  * Assign this as new velocity for each player in Random Opposite Directions
