@@ -1,2 +1,5 @@
 .Rhistory
 composer.phar
+*.sqlite
+composer.phar
+/vendor/
