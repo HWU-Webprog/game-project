@@ -7,7 +7,7 @@ body {
     font-size: 20px;
     color: black;
     background-color: black;
-    background: black url('../img/background.jpg');
+    background: black url('background.jpg');
     background-repeat: repeat;
     text-align: center;
     line-height: normal;
@@ -48,17 +48,6 @@ a:link, a:visited, a:hover {
 a:hover {
     color: red;
 }
-
-i .mr {
-    margin-right: 0.25rem;
-}
-
-i.ml {
-    margin-left: 0.25rem;
-}
-
-/*Poor CSS by Cameron Bell (cjb15/RedCJB15)*/
-
 
 img {
     display: block;
@@ -219,5 +208,3 @@ a:hover.nav-link {
 .icon-padding-left {
     margin-right: 2px;
 }
-
-/*Profile Screen CSS Added by Alexander de Bruin (cad11/MagnificentBubble)*/
