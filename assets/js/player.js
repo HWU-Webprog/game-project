@@ -155,97 +155,24 @@ function dash(){
     var prevX = testplayer.velocityX;
     var prevY = testplayer.velocityY;
     var prevTract = testplayer.tractionAmount;
-    var boostAmount = 5;
+    var boostAmount = 2.5;
 
+    // set boostActive to true to prevent continued use
     testplayer.boostActive = true;
-    
-    var currentDirection = getDirection();
-    console.log(currentDirection);
 
     // increase traction amount to slow down after boost
-    testplayer.tractionAmount = 2 * testplayer.tractionAmount;
+    testplayer.tractionAmount *= 2;
 
-    switch(currentDirection){
-        case "north":
-            testplayer.velocityY -= boostAmount;
-            break;
-        case "north east":
-            testplayer.velocityY -= boostAmount;
-            testplayer.velocityX += boostAmount;
-            break;
-        case "east":
-            testplayer.velocityX += boostAmount;
-            break;
-        case "south east":
-            testplayer.velocityY += boostAmount;
-            testplayer.velocityX += boostAmount;
-            break;
-        case "south":
-            testplayer.velocityY += boostAmount;
-            break;
-        case "south west":
-            testplayer.velocityY += boostAmount;
-            testplayer.velocityX -= boostAmount;
-            break;
-        case "west":
-            testplayer.velocityX -= boostAmount;
-            break;
-        case "north west":
-            testplayer.velocityY -= boostAmount;
-            testplayer.velocityX -= boostAmount;
-            break;
-        default:
-            break;
-    }
+    // Multiply the current X and Y velocities by boostAmount
+    testplayer.velocityX *= boostAmount
+    testplayer.velocityY *= boostAmount
+
 
     // set a time for boost to be active, 3 seconds with this function, then return to previous speed
     setTimeout(function(){ 
         testplayer.boostActive = false;
         testplayer.tractionAmount = prevTract;
     }, 3000);
-}
-
-/**
- * Function to get the direction the player object is currently travelling in
- */
-function getDirection(){
-    // variables for easy of readiblity
-    var velX = testplayer.velocityX;
-    var velY = testplayer.velocityY;
-
-    if(velY < 0){
-        if(velX == 0){
-            // moving north
-            return direction.N;
-        } else if(velX > 0){
-            // moving north east
-            return direction.NE;
-        } else if(velX < 0){
-            // moving north west
-            return direction.NW;
-        }
-    } else if (velY > 0){
-        if (velX == 0){
-            // moving south
-            return direction.S;
-        } else if (velX > 0){
-            // moving south east
-            return direction.SE;
-        } else if (velX < 0){
-            // moving south west
-            return direction.SW;
-        }
-    } else if (velY == 0){
-        if (velX > 0){
-            // moving east
-            return direction.E;
-        } else if (velX < 0){
-            // moving west
-            return direction.W;
-        } else if (velX == 0){
-            return direction.DEFAULT;
-        }
-    }
 }
 
 // Key is down
