@@ -34,10 +34,12 @@ function bounce(player1, player2){
  */
 function kill(player1, player2){
     if (player1.boostactive){
-        player2.killed_by(player1);
+        player2.kill();
+        //Send record of kill to database
     }
     else{
-        player1.killed_by(player2);
+        player1.kill();
+        //send record of kill to database
     }
 }
 
