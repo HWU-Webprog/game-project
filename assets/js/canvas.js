@@ -38,7 +38,7 @@ var canvas = {
         this.interval = setInterval(update, 20);
     },
     //function to clear the canvas of any drawings, used before redrawing
-    clear : function(){
+    clear: function() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
 }

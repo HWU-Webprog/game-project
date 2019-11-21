@@ -29,87 +29,87 @@ function Player(name, color, x, y) {
      * Draws Player object on canvas
      */
     this.draw = function() {
-        // Set to draw onto the canvas
-        playerDraw = canvas.context;
-        // Set the color of the object to player chosen color
-        player.fillStyle = color;
+            // Set to draw onto the canvas
+            playerDraw = canvas.context;
+            // Set the color of the object to player chosen color
+            player.fillStyle = color;
 
-        // Move object relative to velocity
-        this.x += this.velocityX;
-        this.y += this.velocityY;
+            // Move object relative to velocity
+            this.x += this.velocityX;
+            this.y += this.velocityY;
 
 
-        if(!this.boostActive){
-            // keep the player from going past a set speed while boost is not active
-            this.speedCap();
+            if (!this.boostActive) {
+                // keep the player from going past a set speed while boost is not active
+                this.speedCap();
+            }
+
+            // applies traction to object, constantly slowing it
+            this.traction();
+
+            // check if player object has collided with boundaries
+            this.checkBounds();
+
+            // Create a 20x20 square at the provided position
+            player.fillRect(this.x, this.y, this.myWidth, this.myHeight);
+        },
+
+        /**
+         * Moves Player object left
+         */
+        this.checkBounds = function() {
+
+            /***** Bounce *****/
+            // y bounces at: 0 , 480
+            // x bounces at: 0 , 480
+            if (this.y > 480) {
+                this.velocityY = -this.velocityY;
+            } else if (this.y < 0) {
+                this.velocityY = -this.velocityY;
+            }
+
+            if (this.x > 480) {
+                this.velocityX = -this.velocityX;
+            } else if (this.x < 0) {
+                this.velocityX = -this.velocityX;
+            }
+
+        },
+        this.traction = function() {
+            if (this.velocityX > 0) {
+                this.velocityX -= this.tractionAmount;
+            } else if (this.velocityX < 0) {
+                this.velocityX += this.tractionAmount;
+            }
+
+            if (this.velocityY > 0) {
+                this.velocityY -= this.tractionAmount;
+            } else if (this.velocityY < 0) {
+                this.velocityY += this.tractionAmount;
+            }
+        },
+        this.speedCap = function() {
+            if (this.velocityX > 5) {
+                this.velocityX = 5
+            } else if (this.velocityX < -5) {
+                this.velocityX = -5;
+            }
+
+            if (this.velocityY > 5) {
+                this.velocityY = 5;
+            } else if (this.velocityY < -5) {
+                this.velocityY = -5;
+            }
         }
-
-        // applies traction to object, constantly slowing it
-        this.traction();
-
-        // check if player object has collided with boundaries
-        this.checkBounds();
-
-        // Create a 20x20 square at the provided position
-        player.fillRect(this.x,this.y,this.myWidth,this.myHeight);
-    },
-
-    /**
-     * Moves Player object left
-     */
-    this.checkBounds = function(){
-
-        /***** Bounce *****/
-        // y bounces at: 0 , 480
-        // x bounces at: 0 , 480
-        if(this.y > 480){
-            this.velocityY = -this.velocityY;
-        } else if (this.y < 0){
-            this.velocityY = -this.velocityY;
-        }
-
-        if(this.x > 480){
-            this.velocityX = -this.velocityX;
-        } else if (this.x < 0){
-            this.velocityX = -this.velocityX;
-        }
-
-    },
-    this.traction = function(){
-        if(this.velocityX > 0){
-            this.velocityX -= this.tractionAmount;
-        } else if (this.velocityX < 0){
-            this.velocityX += this.tractionAmount;
-        }
-
-        if(this.velocityY > 0){
-            this.velocityY -= this.tractionAmount;
-        } else if (this.velocityY < 0){
-            this.velocityY += this.tractionAmount;
-        }
-    },
-    this.speedCap = function(){
-        if (this.velocityX > 5){
-            this.velocityX = 5
-        } else if (this.velocityX < -5){
-            this.velocityX = -5;
-        }
-
-        if (this.velocityY > 5){
-            this.velocityY = 5;
-        } else if (this.velocityY < -5){
-            this.velocityY = -5;
-        }
-    }
 }
 
 // increase velocity to the left
-function moveLeft(){
+function moveLeft() {
     testplayer.velocityX -= 0.5;
 }
 
 // increase velocity to the right
-function moveRight(){
+function moveRight() {
     testplayer.velocityX += 0.5;
 }
 
@@ -119,12 +119,12 @@ function moveUp() {
 }
 
 // increase velocity downwards
-function moveDown(){
+function moveDown() {
     testplayer.velocityY += 0.5;
 }
 
 // A function which causes the player to experience a boost in speed for a short time
-function dash(){
+function dash() {
     var prevX = testplayer.velocityX;
     var prevY = testplayer.velocityY;
     var prevTract = testplayer.tractionAmount;
@@ -142,14 +142,14 @@ function dash(){
 
 
     // set a time for boost to be active, 3 seconds with this function, then return to previous speed
-    setTimeout(function(){
+    setTimeout(function() {
         testplayer.boostActive = false;
         testplayer.tractionAmount = prevTract;
     }, 3000);
 }
 
 // murder the player
-function murder(){
+function murder() {
     //murder player and kick them from current game. Maybe respawn
 }
 
@@ -162,23 +162,23 @@ $(document).keydown(function(e) {
     // determine which key is being pressed
 
     // left arrow
-    if(keys && keys[37])
+    if (keys && keys[37])
         moveLeft();
 
     // up arrow
-    if(keys && keys[38])
+    if (keys && keys[38])
         moveUp();
 
     // right arrow
-    if(keys && keys[39])
+    if (keys && keys[39])
         moveRight();
 
     // down arrow
-    if(keys && keys[40])
+    if (keys && keys[40])
         moveDown();
 
     // Q, only usable while boost is not active
-    if(keys && keys[81] && (!testplayer.boostActive))
+    if (keys && keys[81] && (!testplayer.boostActive))
         dash();
 })
 
