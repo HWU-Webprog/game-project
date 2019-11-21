@@ -36,6 +36,22 @@ function kill(player1, player2){
     }
 }
 
+//Determine whether 2 player's coordinates are intersecting,. return true/false appropriately
+function intersects(player1, player2){
+  //Assign variables for xs and ys
+  x1 = player1.x;
+  x2 = player2.x;
+  y1 = player1.y;
+  y2 = player2.y;
+  //Determine whether coordinates lie within bounds of each other
+  if((x1 < x2 + 20) && (x1 + 20 > x2) && (y1 < y2 + 20) && (y1 + 20 > y2)){
+    return true;
+  }
+  else{
+    return false;
+  }
+}
+
 /**
  * DETECT COLLISION
  * If one player XOR the other is Dashing
@@ -43,3 +59,13 @@ function kill(player1, player2){
  * else
  * BOUNCE
  */
+function hasCollided(player1, player2){
+  if( ( intersects(player1, player2)) {
+    if((player1.boostActive && !player2.boostActive) || (!player1.boostActive && player2.boostActive)){
+      kill(player1, player2);
+    }
+    else{
+      bounce(player1, player2);
+    }
+  }
+}
