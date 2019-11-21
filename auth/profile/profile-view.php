@@ -9,7 +9,22 @@ if (isset($_GET['u']) && $_GET['u'])
 else
     $profile = new Profile($_GET['u']);
 
-?>
+if (empty($profile->name))
+{ ?>
+    <div class="textDialog">
+        <p>No profile found for user "<?= $profile->username ?>". Try again!</p>
+        <hr>
+
+        <form action="" method="GET">
+            <p>
+                Search for profile: <input type="text" placeholder="Username" name="u">
+                <button type="submit">Go</button>
+            </p>
+        </form>
+    </div>
+<?php }
+else
+{ ?>
     <div id="leftWrapper">
         <div class="imageContainer" id="profileImageContainer">
             <!--Javascript to set the image to what was saved-->
@@ -37,19 +52,15 @@ else
 
         <div class="logContainer" id="profileLogContainer">
             <!--Insert Javascript to create .log classes for games played from the user's data-->
-            <div class="log">
-                Position: #34 | Kills: 12 | Killed By: Smart Cookie
-            </div>
-            <div class="log">
-                    Position: #64 | Kills: 1 | Killed By: Smart Cookie
-            </div>
-            <div class="log">
-                    Position: #2 | Kills: 7 | Killed By: Smart Cookie
-            </div>
-            <div class="log">
-                Position: #1 | Kills: 43 | VICTORY
-            </div>
+            <?php foreach ($profile->games as $game) { ?>
+                <div class="log">
+                    Position: <?= $game->getFinishPos() ?> |
+                    Kills: <?= $game->getKills() ?> |
+                    Killed By: <?= $game->getKilledBy() ?>
+                </div>
+            <?php } ?>
         </div>
     </div>
+<?php }
 
-<?php require __DIR__.'/../../assets/layout/footer.php'; ?>
+require __DIR__.'/../../assets/layout/footer.php'; ?>
