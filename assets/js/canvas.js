@@ -28,8 +28,8 @@ var canvas = {
     //start function which configures the canvas' attributes
     start: function() {
         // set the canvas to a 200x200 pixel square
-        this.canvas.width = 200;
-        this.canvas.height = 200;
+        this.canvas.width = 500;
+        this.canvas.height = 500;
         //Set the context to render 2d objects
         this.context = this.canvas.getContext("2d");
         //adds the canvas element before the first existing node on the page
