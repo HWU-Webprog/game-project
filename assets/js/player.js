@@ -175,6 +175,11 @@ function dash(){
     }, 3000);
 }
 
+// murder the player
+function murder(){
+    //murder player and kick them from current game. Maybe respawn
+}
+
 // Key is down
 $(document).keydown(function(e) {
     // set keys array to true
