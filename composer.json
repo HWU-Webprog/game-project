@@ -1,0 +1,20 @@
+{
+    "name": "webprog/app",
+    "description": "HWU Webprog/Firehaus game project",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Calum Shepherd",
+            "email": "calum.shep@icloud.com"
+        }
+    ],
+    "require": {
+        "myclabs/php-enum": "^1.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Auth\\": "auth/"
+        }
+    }
+}
