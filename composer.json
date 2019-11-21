@@ -8,7 +8,9 @@
             "email": "calum.shep@icloud.com"
         }
     ],
-    "require": {},
+    "require": {
+        "myclabs/php-enum": "^1.7"
+    },
     "autoload": {
         "psr-4": {
             "App\\": "app/",
