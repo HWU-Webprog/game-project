@@ -3,22 +3,6 @@
  * object that is drawn to the canvas
  */
 
-// enum for direction
-const direction = {
-    N: 'north',
-    NE: 'north east',
-    E: 'east',
-    SE: 'south east',
-    S: 'south',
-    SW: 'south west',
-    W: 'west',
-    NW: 'north west',
-    DEFAULT: 'stationary'
-}
-
-// array for holding keys pressed
-var keys = {};
-
 /**
  * Constructor for new Player object
  *
@@ -40,12 +24,13 @@ function Player(name, color, x, y) {
     this.myWidth = 20;
     this.myHeight = 20;
 
+
     /**
      * Draws Player object on canvas
      */
     this.draw = function() {
         // Set to draw onto the canvas
-        player = canvas.context;
+        playerDraw = canvas.context;
         // Set the color of the object to player chosen color
         player.fillStyle = color;
 
@@ -68,8 +53,9 @@ function Player(name, color, x, y) {
         // Create a 20x20 square at the provided position
         player.fillRect(this.x,this.y,this.myWidth,this.myHeight);
     },
+
     /**
-     * If the player moves out of bounds of the canvas, loop
+     * Moves Player object left
      */
     this.checkBounds = function(){
 
