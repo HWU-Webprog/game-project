@@ -1,14 +1,13 @@
-
 /**
-* This file is for holding the functions used to set up many other
-* elements of the site.
-*/
+ * This file is for holding the functions used to set up many other
+ * elements of the site.
+ */
 var testplayer
 
 
 /**
-* Function to draw the canvas and draw a player object
-*/
+ * Function to draw the canvas and draw a player object
+ */
 function start() {
     canvas.start();
     // Calls the Username and Colour from the Starts screen text box and drop down menu
@@ -17,7 +16,7 @@ function start() {
 }
 
 // Updates the canvas every 20 ms
-function update(){
+function update() {
     canvas.clear();
     testplayer.y -= 1;
     testplayer.draw();

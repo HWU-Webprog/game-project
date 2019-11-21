@@ -12,5 +12,5 @@ function start() {
     testplayer.draw();
 
     // See drawLine call example below.
-    drawLine(0,0,100,100)
+    drawLine(0, 0, 100, 100)
 }

@@ -7,25 +7,25 @@ function wizardOfOz() {
 }
 
 //Data Type for message
-function Message (name, msg){
+function Message(name, msg) {
     this.name = name;
     this.timestamp = Date.now();
     this.msg = msg;
 
-    this.out = function(){
-        return "("+timestamp+") "+name+": "+msg;
+    this.out = function() {
+        return "(" + timestamp + ") " + name + ": " + msg;
     }
 }
 
 //Queue's messages server side
-function msgqueue(){
+function msgqueue() {
     this.q = [];
 
-    this.enqueue = function(Message){
+    this.enqueue = function(Message) {
         q.push(Message);
     }
 
-    this.dequeue = function(){
+    this.dequeue = function() {
         q.shift();
     }
 }

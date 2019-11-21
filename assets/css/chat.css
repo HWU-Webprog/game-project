@@ -1,4 +1,3 @@
-
 body {
     font-family: arial;
     font-size: 20px;
@@ -13,11 +12,9 @@ body {
     color: black;
     text-align: center;
     line-height: normal;
-
-    position:fixed;
+    position: fixed;
     right: 0%;
     bottom: 0%;
-
     height: 50%;
     width: 50%;
     background-color: lightgrey;
@@ -35,19 +32,19 @@ body {
     overflow: hidden;
 }
 
-#messageInput{
+#messageInput {
     height: 90%;
     width: 80%;
     float: left;
     overflow: hidden;
 }
 
-#messageSend{
+#messageSend {
     height: 100%;
     width: 10%;
 }
 
-.chatlog{
+.chatlog {
     height: 90%;
     width: 100%;
     text-align: left;
