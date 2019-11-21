@@ -50,7 +50,7 @@ class SQLiteProvision
     public function insertTestData()
     {
         // test users
-        echo 'INSERT INTO users("username","name","password", "bio") VALUES("testUser","Test User","'.password_hash('test', PASSWORD_DEFAULT).'", "Nulla excepteur ut labore do irure officia ut nisi excepteur sed mollit sed.")';
+        echo 'INSERT INTO users("username","name","password","bio") VALUES("testUser","Test User","'.password_hash('test', PASSWORD_DEFAULT).'", "Nulla excepteur ut labore do irure officia ut nisi excepteur sed mollit sed.")';
         $this->pdo->exec('INSERT INTO users("username","name","password", "bio") VALUES("testUser","Test User","'.password_hash('test', PASSWORD_DEFAULT).'", "Nulla excepteur ut labore do irure officia ut nisi excepteur sed mollit sed.")');
         $this->pdo->exec('INSERT INTO users("username","name","password", "bio") VALUES("testUser2","Test User2","'.password_hash('test2', PASSWORD_DEFAULT).'", "Enim exercitation magna dolore irure aliqua sit amet commodo eu proident veniam do minim labore dolor nulla voluptate irure esse mollit.")');
     }
