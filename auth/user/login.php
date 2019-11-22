@@ -22,7 +22,7 @@ if (isset($_POST['u']))
     {
         if (Auth::logIn($_POST['u'], $_POST['p']))
             // if logged in, redirect to profile
-            redirect(\App\Config::DOMAIN.'/auth/profile/profile-view.php');
+            redirect('/auth/profile/profile-view.php');
         else
             $error = 'login_failed';
     }
