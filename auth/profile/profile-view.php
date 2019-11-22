@@ -2,8 +2,8 @@
 
 require __DIR__.'/../../assets/layout/header.php';
 
-use \Auth\Profile;
-use \Auth\Auth;
+use \Auth\Profile as Profile;
+use \Auth\Auth as Auth;
 
 if (isset($_GET['u']) && $_GET['u'])
     $profile = new Profile($_GET['u']);

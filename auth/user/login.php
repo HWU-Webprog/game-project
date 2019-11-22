@@ -4,8 +4,8 @@ error_reporting(E_ALL);
 
 require __DIR__.'/../../assets/layout/header.php';
 
-use \Auth\User;
-use \Auth\Auth;
+use \Auth\User as User;
+use \Auth\Auth as Auth;
 use \Auth\NewUserStatus as Status;
 
 // deal with form data if sent
