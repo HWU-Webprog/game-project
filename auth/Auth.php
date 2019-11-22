@@ -31,7 +31,7 @@ class Auth
             if ($user->checkPassword($p))
             {
                 $_SESSION['logged_in'] = $u;
-                setcookie('logged_in', $u);
+                setcookie('logged_in', $u, 0, __DIR__.'/../../', '/');
                 return $user;
             }
             else
