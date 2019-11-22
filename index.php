@@ -23,8 +23,11 @@
         </form>
 
         <hr>
-        <p><a href="https://github.com/HWU-Webprog/game-project" target="_blank" style="text-decoration: none;">
-            <i class="fab fa-fw fa-github mr"></i>Open Source!
-        </a></p>
+        <p>
+            <a href="https://github.com/HWU-Webprog/game-project" target="_blank" style="text-decoration: none; text-align:center">
+
+            <i class="fab fa-fw fa-github mr"></i>  Open Source!
+            </a>
+        </p>
     </div>
 <?php require 'assets/layout/footer.php'; ?>
