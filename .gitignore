@@ -1,6 +1,5 @@
 .Rhistory
 composer.phar
 *.sqlite
-composer.phar
 /vendor/
-/app/Config.php
+app/Config.php
