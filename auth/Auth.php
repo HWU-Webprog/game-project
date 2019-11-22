@@ -31,7 +31,7 @@ class Auth
             if ($user->checkPassword($p))
             {
                 $_SESSION['logged_in'] = $u;
-                setcookie('logged_in', $u);
+                setcookie('logged_in', $u, 0, __DIR__.'/../../', '/');
                 return $user;
             }
             else
@@ -46,16 +46,16 @@ class Auth
     /**
      * Checks if a user is currently authenticated
      *
-     * @return     User|boolean  User object of logged in user || false if no authenticated user
+     * @return     String|boolean  Username of logged in user || false if no authenticated user
      */
     public static function loggedIn()
     {
         // check if session variable is set
         if ((isset($_SESSION['logged_in'])))
-            return new User(NewUserStatus::FETCH, $SESSION['logged_in']);
+            return $_SESSION['logged_in'];
         // check if cookie is set
         else if ((isset($_COOKIE['logged_in'])))
-            return new User(NewUserStatus::FETCH, $_COOKIE['logged_in']);
+            return $_COOKIE['logged_in'];
         else
             // user is not logged in
             return false;

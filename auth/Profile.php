@@ -3,7 +3,7 @@
 namespace Auth;
 
 use \App\SQLiteConnection as SQLiteConnection;
-use \Auth\Game as Game;
+use \Auth\Kill as Kill;
 
 class Profile
 {
@@ -18,7 +18,7 @@ class Profile
     public $bio;
     public $wins;
     public $average_pos;
-    public $games = [];
+    public $kills = [];
 
     /**
      * Constructs a new instance and connects to database
@@ -48,24 +48,40 @@ class Profile
         $this->bio = $data['bio'];
         $this->wins = $data['wins'];
         $this->average_pos = $data['average_pos'];
-        $this->games = $this->getGames();
+        $this->kills = $this->getKills();
     }
 
     /**
-     * Gets the games the user has played
+     * Gets the kills the user has played
      *
-     * @return     Game[]  The games
+     * @return     Kill[]  The kills
      */
-    public function getGames()
+    public function getKills()
     {
-        $stmt = $this->pdo->prepare('SELECT * FROM "game_results" WHERE "users.username"=:username');
+        $stmt = $this->pdo->prepare('SELECT * FROM "kill_log" WHERE "killer"=:username');
         $stmt->execute([':username' => $this->username]);
         $data = $stmt->fetch(\PDO::FETCH_ASSOC);
 
-        $games = [];
-        foreach ($data as $game)
-            array_push($games, new Game($data[1], $data[2], $data[3], $data[4], $data[5]));
-        return $games;
+        $kills = [];
+        if ($data)
+        {
+            foreach ($data as $kills)
+                array_push($kills, new Kill($data[0], $data[1], $data[2]));
+            return $kills;
+        }
+        return null;
+    }
+
+    /**
+     * Gets the number of kills for the profile.
+     *
+     * @return     int  The number of kills.
+     */
+    public function getNumKills()
+    {
+        if ($this->kills)
+            return sizeof($this->kills);
+        return 0;
     }
 
 }

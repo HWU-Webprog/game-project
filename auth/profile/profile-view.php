@@ -2,8 +2,8 @@
 
 require __DIR__.'/../../assets/layout/header.php';
 
-use \Auth\Profile;
-use \Auth\Auth;
+use \Auth\Profile as Profile;
+use \Auth\Auth as Auth;
 
 if (isset($_GET['u']) && $_GET['u'])
     $profile = new Profile($_GET['u']);
@@ -48,20 +48,22 @@ else
 
     <div id="rightWrapper">
         <div class="textDiv" id="profileHeader">
-            <?= $profile->username ?> | Wins: <?= $profile->wins ?> | Average Position: <?= $profile->average_pos ?>
+            <?= $profile->username ?> | <?= $profile->name ?> | Total Kills: <?= $profile->getNumKills() ?>
             <!--Javascript here to fetch data-->
         </div>
 
-        <div class="logContainer" id="profileLogContainer">
-            <!--Insert Javascript to create .log classes for games played from the user's data-->
-            <?php foreach ($profile->games as $game) { ?>
-                <div class="log">
-                    Position: <?= $game->getFinishPos() ?> |
-                    Kills: <?= $game->getKills() ?> |
-                    Killed By: <?= $game->getKilledBy() ?>
-                </div>
-            <?php } ?>
-        </div>
+        <?php if ($profile->kills)
+        { ?>
+            <div class="logContainer" id="profileLogContainer">
+                <!--Insert Javascript to create .log classes for kills played from the user's data-->
+                <?php foreach ($profile->kills as $kill) { ?>
+                    <div class="log">
+                        At: <?= $kill->getTime()->format('H:i d/m/Y') ?> |
+                        Victim: <?= $kill->getVictim() ?> |
+                    </div>
+                <?php } ?>
+            </div>
+        <?php } ?>
     </div>
 <?php }
 

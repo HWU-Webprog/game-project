@@ -12,7 +12,7 @@ class Config
      *
      * @var        string
      */
-    const DOMAIN = 'http://www2.macs.hw.ac.uk/~cws3/game-project';
+    const DOMAIN = '';
 
     /**
      * Path to the sqlite database file

@@ -4,8 +4,8 @@ error_reporting(E_ALL);
 
 require __DIR__.'/../../assets/layout/header.php';
 
-use \Auth\User;
-use \Auth\Auth;
+use \Auth\User as User;
+use \Auth\Auth as Auth;
 use \Auth\NewUserStatus as Status;
 
 // deal with form data if sent
@@ -22,7 +22,7 @@ if (isset($_POST['u']))
     {
         if (Auth::logIn($_POST['u'], $_POST['p']))
             // if logged in, redirect to profile
-            redirect(\App\Config::DOMAIN.'/auth/profile/profile-view.php');
+            redirect('/auth/profile/profile-view.php');
         else
             $error = 'login_failed';
     }
@@ -34,9 +34,9 @@ if (isset($_POST['u']))
 
 ?>
 
-    <div class="textDialog" style="padding-bottom: 20px;">
+    <div class="textDialog">
         <h1>Log In</h1>
-        <div style="margin-left: auto; margin-right: auto;">
+        <div>
             <?php if (isset($error))
             {
                 if ($error === 'no_user' || $error === 'login_failed')
@@ -52,9 +52,18 @@ if (isset($_POST['u']))
                     <p>Please enter a password!</p>
                 <?php }
             } ?>
-            <form action="" method="POST" style="text-align: left;">
-                <p>Username: <input type="text" name="u" value="<?php if (isset($_POST['u'])) echo $_POST['u']; ?>" required></p>
-                <p>Password: <input type="password" name="p" required></p>
+            <form action="" method="POST" style="text-align: centre;">
+                <div class="formWrapper">
+                    <div class="formWrapperLeft">
+                        <p>Username: </p>
+                        <p>Password: </p>
+                    </div>
+                    <div class="formWrapperRight">
+                        <p><input class="formField" type="text" name="u" value="<?php if (isset($_POST['u'])) echo $_POST['u']; ?>" required></p>
+                        <p><input class="formField" type="password" name="p" required></p>
+                    </div>
+                </div>
+
                 <button type="submit" name="submit">Log In &raquo;</button>
             </form>
         </div>
