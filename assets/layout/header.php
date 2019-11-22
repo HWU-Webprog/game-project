@@ -1,12 +1,12 @@
-<?php require __DIR__.'/../../vendor/autoload.php';
+<?php session_start(); require __DIR__.'/../../vendor/autoload.php';
 
 function redirect($url)
 {
     if (headers_sent())
-        die('<script type="text/javascript">window.location=\'' .Config::DOMAIN.$url.'\'; </script>');
+        die('<script type="text/javascript">window.location=\'' .App\Config::DOMAIN.$url.'\'; </script>');
     else
     {
-        header('LOCATION: '.Config::DOMAIN.$url);
+        header('LOCATION: '.App\Config::DOMAIN.$url);
         die();
     }
 }
