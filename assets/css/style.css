@@ -143,7 +143,10 @@ img {
 }
 
 .formField{
-    /* Attempts to unify the length of the input go here*/
+    /* Attempts to unify the length of the input go here
+    height: 100%;
+    width: 100%;
+    overflow: hidden;*/
 }
 
 #leftWrapper{
