@@ -6,6 +6,9 @@ use \Auth\User as User;
 use \Auth\Auth as Auth;
 use \Auth\NewUserStatus as Status;
 
+if (Auth::loggedIn())
+    redirect('/auth/profile/profile-view.php');
+
 // deal with form data if sent
 if (isset($_POST['u']))
 {
