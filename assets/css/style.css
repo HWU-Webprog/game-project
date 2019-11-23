@@ -73,21 +73,6 @@ img {
     box-shadow: inset 0 0 7px 4px;
 }
 
-.textDialog{
-    background-color: lightgrey;
-    border-style: solid;
-    border-width: thick;
-    border-color: grey;
-    margin-top: 20px;
-    padding: 10px 0 10px 0;
-    border-radius: 30px;
-    box-shadow: inset 0 0 7px 4px;
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-
 .editButton{
     display: none;
 }
@@ -112,6 +97,55 @@ img {
     padding: 10px 0 10px 0;
     border-radius: 30px;
     box-shadow: inset 0 0 7px 4px;
+}
+
+.textDialog{
+    background-color: lightgrey;
+    border-style: solid;
+    border-width: thick;
+    border-color: grey;
+    margin-top: 20px;
+    padding: 10px 0 45px 0;
+    border-radius: 30px;
+    box-shadow: inset 0 0 7px 4px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    display: flexbox;
+}
+
+.formWrapper{
+    text-align: center;
+    display: block;
+    height:auto;
+    bottom:0;
+    top:0;
+    left:0;
+    right:0;
+    margin-top:10px;
+    margin-bottom:50px;
+    margin-right:25px;
+    margin-left:20px;
+    align-content: center;
+}
+
+.formWrapperLeft{
+    display: inline-block;
+    text-align: left;
+    font-size: 23.5px;
+}
+
+.formWrapperRight{
+    display: inline-block;
+    text-align: left;
+
+}
+
+.formField{
+    /* Attempts to unify the length of the input go here*/
+    height: 100%;
+    width: 100%;
 }
 
 #leftWrapper{
@@ -206,4 +240,77 @@ a:hover.nav-link {
 
 .icon-padding-left {
     margin-right: 2px;
+}
+
+.chatlog{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    text-align: left;
+    margin: 1px;
+    overflow-y: auto;
+}
+
+.message {
+    padding: 10px;
+    text-align: left;
+}
+
+#chatWrapper {
+    font-family: arial;
+    font-size: 11px;
+    color: black;
+    text-align: center;
+    line-height: normal;
+
+    position:fixed;
+    right: 0%;
+    bottom: 0%;
+
+    height: 40%;
+    width: 40%;
+
+    background-color: lightgrey;
+    opacity: 0.6;
+    border-style: solid;
+    border-width: thick;
+    border-color: grey;
+    margin: 10px 10px 10px 10px;
+    padding: 10px 0 10px 0;
+    border-radius: 30px;
+    box-shadow: inset 0 0 7px 4px;
+}
+
+#chatWrapper:hover{
+    opacity: 1;
+}
+
+#chatContainer {
+
+    display: block;
+    position:absolute;
+    height:auto;
+    bottom:0;
+    top:0;
+    left:0;
+    right:0;
+    margin-top:10px;
+    margin-bottom:50px;
+    margin-right:25px;
+    margin-left:20px;
+
+}
+
+#messageField {
+    display: flex;
+    margin-top: 5px;
+    height: 10px;
+    width: 100%;
+    overflow: hidden;
+}
+
+#messageInput{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
 }

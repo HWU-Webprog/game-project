@@ -42,7 +42,7 @@ if (isset($_POST['u']))
 
 ?>
 
-    <div class="textDialog" style="padding-bottom: 20px;">
+    <div class="textDialog">
         <h1>Register</h1>
         <div style="margin-left: auto; margin-right: auto;">
             <?php if (isset($error))
@@ -61,11 +61,21 @@ if (isset($_POST['u']))
                 <?php }
             } ?>
 
-            <form action="" method="POST" style="text-align: left;">
-                <p>Username: <input type="text" name="u" required></p>
-                <p>Name: <input type="text" name="n" required></p>
-                <p>Password: <input type="password" name="p" required></p>
-                <p>Confirm Password: <input type="password" name="p_conf" required></p>
+            <form action="" method="POST" style="text-align: centre;">
+                <div class="formWrapper">
+                    <div class="formWrapperLeft">
+                        <p>Username: </p>
+                        <p>Name: </p>
+                        <p>Password: </p>
+                        <p>Confirm Password: </p>
+                    </div>
+                    <div class="formWrapperRight">
+                        <p><input type="text" name="u" required></p>
+                        <p><input type="text" name="n" required></p>
+                        <p><input type="password" name="p" required></p>
+                        <p><input type="password" name="p_conf" required></p>
+                    </div>
+                </div>
                 <button type="submit" name="submit">Register &raquo;</button>
             </form>
         </div>
