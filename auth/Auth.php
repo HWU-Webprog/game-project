@@ -2,8 +2,6 @@
 
 namespace Auth;
 
-error_reporting(E_ALL);
-
 use \Auth\User;
 use \Config;
 
