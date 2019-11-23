@@ -133,13 +133,19 @@ img {
 .formWrapperLeft{
     display: inline-block;
     text-align: left;
-    font-size: 23px;
+    font-size: 23.5px;
 }
 
 .formWrapperRight{
     display: inline-block;
     text-align: left;
 
+}
+
+.formField{
+    /* Attempts to unify the length of the input go here*/
+    height: 100%;
+    width: 100%;
 }
 
 #leftWrapper{
