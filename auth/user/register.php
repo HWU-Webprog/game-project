@@ -1,7 +1,5 @@
 <?php
 
-error_reporting(E_ALL);
-
 require __DIR__.'/../../assets/layout/header.php';
 
 use \Auth\User as User;

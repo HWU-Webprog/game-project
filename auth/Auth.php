@@ -2,8 +2,6 @@
 
 namespace Auth;
 
-error_reporting(E_ALL);
-
 use \Auth\User;
 use \Config;
 
@@ -31,7 +29,6 @@ class Auth
             if ($user->checkPassword($p))
             {
                 $_SESSION['logged_in'] = $u;
-                setcookie('logged_in', $u, 0, __DIR__.'/../../', '/');
                 return $user;
             }
             else
@@ -53,9 +50,6 @@ class Auth
         // check if session variable is set
         if ((isset($_SESSION['logged_in'])))
             return $_SESSION['logged_in'];
-        // check if cookie is set
-        else if ((isset($_COOKIE['logged_in'])))
-            return $_COOKIE['logged_in'];
         else
             // user is not logged in
             return false;

@@ -1,4 +1,8 @@
-<?php session_start(); require __DIR__.'/../../vendor/autoload.php';
+<?php
+
+session_start();
+
+require __DIR__.'/../../vendor/autoload.php';
 
 function redirect($url)
 {
@@ -28,15 +32,26 @@ function redirect($url)
 
     <div class="header">
         <p class="menu-left">
-            Firehaus
+            <span class="nav-link" style="padding-right: 20px;">Firehaus</span>
+
+            <a class="nav-link" href="<?= App\Config::DOMAIN ?>/index.php">
+                <i class="fas fa-fw fa-home icon-padding-right"></i> Home
+            </a>
         </p>
+
         <p class="menu-right">
-            <a class="nav-link" href="<?= App\Config::DOMAIN ?>/auth/user/login.php">
-                <i class="fas fa-fw fa-key icon-padding-right"></i> Login
-            </a>
-            &middot;
-            <a class="nav-link" href="<?= App\Config::DOMAIN ?>/auth/user/register.php">
-                <i class="fas fa-fw fa-user-plus icon-padding-right"></i> Register
-            </a>
+            <?php if (!\Auth\Auth::loggedIn()) { ?>
+                <a class="nav-link" href="<?= App\Config::DOMAIN ?>/auth/user/login.php">
+                    <i class="fas fa-fw fa-key icon-padding-right"></i> Login
+                </a>
+                &middot;
+                <a class="nav-link" href="<?= App\Config::DOMAIN ?>/auth/user/register.php">
+                    <i class="fas fa-fw fa-user-plus icon-padding-right"></i> Register
+                </a>
+            <?php } else { ?>
+                <a class="nav-link" href="<?= App\Config::DOMAIN ?>/auth/profile/profile-view.php">
+                    <i class="fas fa-fw fa-user icon-padding-right"></i> Profile
+                </a>
+            <?php } ?>
         </p>
     </div>
