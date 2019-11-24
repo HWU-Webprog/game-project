@@ -66,17 +66,17 @@ class User
                     $this->password = $data['password'];
                 }
                 else // throw exception if user not found
-                    throw new Exception("User " . $u . "not found!");
+                    throw new \Exception("User " . $u . "not found!");
             }
             else // throw exception for passing name and password but trying to FETCH user
-                throw new Exception("Can't fetch existing user by name or password");
+                throw new \Exception("Can't fetch existing user by name or password");
         }
         else if ($status === NewUserStatus::CREATE)
         {   // status implies user needs registered
             // check that the username and password have been passed
             // (i.e. enough information exists to register the user)
             if (empty($n) || empty($p)) // throw exception for not enough data being passed to constructor
-                throw new Exception("Can't create new user without name and password");
+                throw new \Exception("Can't create new user without name and password");
             else
             {
                 // set local fields and call the register function
