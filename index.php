@@ -18,7 +18,7 @@
                 <option value="Yellow">Yellow</option>
             </select>
         </p>
-        <p><button type="button" onclick="start()">Join </button></p>
+        <p><button type="button" id="joinGame" onclick="start()">Join </button></p>
         <hr>
 
         <form action="/auth/profile/profile-view.php" method="GET">

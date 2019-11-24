@@ -4,6 +4,12 @@
  */
 var testplayer
 
+// When the join game button is pressed, the menu is hid
+$(document).ready(function(){
+    $("#joinGame").click(function(){
+        $("#main").hide();
+    })
+})
 
 /**
  * Function to draw the canvas and draw a player object
