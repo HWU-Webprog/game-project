@@ -100,7 +100,7 @@ class User
             throw new Exception("Cannot register user without all parameters!");
         else
         {
-            $stmt = $pdo->prepare('
+            $stmt = $this->pdo->prepare('
                 INSERT INTO users("username","name","password","bio")
                 VALUES(:username, :name, :password, "")'
             );
