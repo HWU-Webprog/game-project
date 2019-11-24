@@ -10,14 +10,13 @@ var testplayer
  */
 function start() {
     canvas.start();
-    // Calls the Username and Colour from the Starts screen text box and drop down menu
-    var testplayer = new Player(document.getElementById('USERNAME').value, document.getElementById('COLOUR').value, 50, 50);
+    // Calls the Username and Colour from the Starts screen text box and drop down menu (right now just holds test variables)
+    testplayer = new Player("test","RED", 50, 50);
     testplayer.draw();
 }
 
 // Updates the canvas every 20 ms
 function update() {
     canvas.clear();
-    testplayer.y -= 1;
     testplayer.draw();
 }

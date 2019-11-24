@@ -3,6 +3,9 @@
  * object that is drawn to the canvas
  */
 
+// variable to hold the keys pressed by user
+var keys = {};
+
 /**
  * Constructor for new Player object
  *
@@ -30,7 +33,7 @@ function Player(name, color, x, y) {
      */
     this.draw = function() {
             // Set to draw onto the canvas
-            playerDraw = canvas.context;
+            player = canvas.context;
             // Set the color of the object to player chosen color
             player.fillStyle = color;
 
@@ -75,7 +78,11 @@ function Player(name, color, x, y) {
             }
 
         },
+        /**
+         * Applies traction to player object, gradually slowing each frame update
+         */
         this.traction = function() {
+            // checks direction the player is going, makes sure negative or position traction is applied correctly
             if (this.velocityX > 0) {
                 this.velocityX -= this.tractionAmount;
             } else if (this.velocityX < 0) {
@@ -88,6 +95,7 @@ function Player(name, color, x, y) {
                 this.velocityY += this.tractionAmount;
             }
         },
+        // makes sure the player object cannot travel faster than a certain speed
         this.speedCap = function() {
             if (this.velocityX > 5) {
                 this.velocityX = 5
