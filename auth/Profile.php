@@ -46,8 +46,6 @@ class Profile
 
         $this->name = $data['name'];
         $this->bio = $data['bio'];
-        $this->wins = $data['wins'];
-        $this->average_pos = $data['average_pos'];
         $this->kills = $this->getKills();
     }
 
