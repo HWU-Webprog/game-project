@@ -4,6 +4,22 @@ require __DIR__.'/../../assets/layout/header.php';
 
 use \Auth\Profile as Profile;
 use \Auth\Auth as Auth;
+use \App\SQLiteConnection as SQLiteConnection;
+
+$db = new SQLiteConnection();
+$pdo = $db->connect();
+
+// deal with form data if sent
+if (isset($_POST['bio']))
+{
+    $stmt = $pdo->prepare('UPDATE "users" SET bio=:bio WHERE username=:username');
+    $stmt->bindValue([
+        ':bio' => $_POST['bio'],
+        ':username' => Auth::loggedIn()
+    ]);
+    if ($stmt->exec())
+        $edited = true;
+}
 
 if (isset($_GET['u']) && $_GET['u'])
     $profile = new Profile($_GET['u']);
@@ -41,11 +57,18 @@ else
                 <h3>
                 <i>About me</i>
                 </h3>
+                <?php if (isset($edited) && $edited === true) { ?>
+                    <p>Profile edited!</p>
+                <?php } ?>
                 <p><?= $profile->bio ?></p>
             <div class="editButton" id="profileDescriptionEdit">
                 <img src="../../assets/img/edit-button-512.png" alt="Edit Description">
                 <!--Javascript to Edit the description-->
             </div>
+            <form action="" method="POST">
+                <!-- change bio to textarea! -->
+                <button type="submit">Done &raquo;</button>
+            </form>
         </div>
     </div>
 
