@@ -71,6 +71,29 @@ class Profile
     }
 
     /**
+     * Gets the kills where the user is the victim
+     *
+     * @return     Kill[]  The kills
+     */
+    public function getDeaths()
+    {
+        $stmt = $this->pdo->prepare('SELECT * FROM "kill_log" WHERE "victim"=:username LIMIT 10');
+        $stmt->execute([':username' => $this->username]);
+        $data = $stmt->fetchAll();
+
+        $deaths = [];
+        if ($data)
+        {
+            foreach ($data as $death)
+            {
+                array_push($deaths, new Kill($death[0], $death[1], $death[2]));
+            }
+            return $deaths;
+        }
+        return null;
+    }
+
+    /**
      * Gets the number of kills for the profile.
      *
      * @return     int  The number of kills.
