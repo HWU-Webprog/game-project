@@ -1,8 +1,21 @@
-<?php include 'assets/layout/header.php'; ?>
+<?php
+
+include 'assets/layout/header.php';
+
+use \Auth\Auth as Auth;
+
+$userName = Auth::loggedIn();
+
+?>
 
     <div id="main">
         <h1>Firehaus</h1>
-        <p>Enter username: <input type="text" placeholder="Username" id="USERNAME"></p>
+        <?php if ($userName) { ?>
+            <p>Your username: <input type="text" value="<?= $userName ?> " id="USERNAME" readonly></p>
+        <?php } else { ?>
+            <p>Enter username: <input type="text" placeholder="Username" id="USERNAME"></p>
+        <?php } ?>
+
         <p>
             Select character colour:
             <select id="COLOUR">
@@ -15,7 +28,7 @@
         <p><button type="button" onclick="createplayer()">Join </button></p>
         <hr>
 
-        <form action="<?= Config::DOMAIN ?>/auth/profile/profile-view.php" method="GET">
+        <form action="<?= \App\Config::DOMAIN ?>/auth/profile/profile-view.php" method="GET">
             <p>
                 Search for profile: <input type="text" placeholder="Username" name="u">
                 <button type="submit">Go</button>
