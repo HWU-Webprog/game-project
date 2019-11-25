@@ -1,8 +1,21 @@
-<?php include 'assets/layout/header.php'; ?>
+<?php
+
+include 'assets/layout/header.php';
+
+use \Auth\Auth as Auth;
+
+$userName = Auth::loggedIn();
+
+?>
 
     <div id="main">
         <h1>Firehaus</h1>
-        <p>Enter username: <input type="text" placeholder="Username" id="USERNAME"></p>
+        <?php if ($userName) { ?>
+            <p>Enter username: <input type="text" value="<?= $userName ?> " id="USERNAME" readonly></p>
+        <?php } else { ?>
+            <p>Enter username: <input type="text" placeholder="Username" id="USERNAME"></p>
+        <?php } ?>
+
         <p>
             Select character colour:
             <select id="COLOUR">
