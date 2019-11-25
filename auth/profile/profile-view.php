@@ -48,27 +48,29 @@ else
             <!--Javascript to set the image to what was saved-->
             <img src="../../assets/img/Woolooloo.jpg" alt="ProfilePic">
             <div class="editButton" id="profileImageContainerEdit">
-                <img src="../../assets/img/edit-button-512.png" alt="Edit Image">
+                <!-- TEMP REMOVAL. PROFILE PICTURES STRETCH GOAL TO IMPLEMENT. ADD ICON HERE.
                 <!--Javascript to Change the image-->
             </div>
         </div>
 
         <div class="textDiv" id="profileDescription">
-                <h3>
-                <i>About me</i>
-                </h3>
-                <?php if (isset($edited) && $edited === true) { ?>
-                    <p>Profile edited!</p>
-                <?php } ?>
-                <p><?= $profile->bio ?></p>
+            <h3><i>About me</i></h3>
+
+            <?php if (isset($edited) && $edited === true) { ?>
+                <p>Profile edited!</p>
+            <?php } ?>
+            <p id="bio"><?= $profile->bio ?></p>
+
+            <?php if(Auth::loggedIn() == $profile->username)
+            { ?>
             <div class="editButton" id="profileDescriptionEdit">
-                <img src="../../assets/img/edit-button-512.png" alt="Edit Description">
-                <!--Javascript to Edit the description-->
+                <i class="fas fa-fw fa-edit" onclick="totextarea()"></i>
             </div>
-            <form action="" method="POST">
-                <!-- change bio to textarea! -->
-                <button type="submit">Done &raquo;</button>
+
+            <form action="" method="POST" style="padding-bottom:20px; text-align:center;" id="bioform">
+                <button id="biobutton" type="submit" style="display:none; text-align:center;">Done &raquo;</button>
             </form>
+            <?php } ?>
         </div>
     </div>
 
