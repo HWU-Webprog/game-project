@@ -75,23 +75,23 @@ else
     </div>
 
     <div id="rightWrapper">
-        <div class="textDiv" id="profileHeader">
+        <div class="textDiv" >
             <?= $profile->username ?> | <?= $profile->name ?> | Total Kills: <?= $profile->getNumKills() ?>
             <!--Javascript here to fetch data-->
         </div>
 
-        <?php if ($profile->kills)
-        { ?>
-            <div class="logContainer" id="profileLogContainer">
-                <!--Insert Javascript to create .log classes for kills played from the user's data-->
+        <div class="textDiv" >
+            Kill Feed
+            <?php if ($profile->kills) { ?><!--Insert Javascript to create .log classes for kills played from the user's data-->
                 <?php foreach ($profile->kills as $kill) { ?>
                     <div class="log">
                         At: <?= $kill->getTime()->format('H:i d/m/Y') ?> |
                         Victim: <?= $kill->getVictim() ?> |
                     </div>
                 <?php } ?>
-            </div>
-        <?php } ?>
+            <?php } ?>
+        </div>
+
     </div>
 <?php }
 
