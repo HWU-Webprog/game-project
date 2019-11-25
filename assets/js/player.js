@@ -189,7 +189,7 @@ $(document).keydown(function(e) {
     // Q, only usable while boost is not active
     if (keys && keys[81] && (!testplayer.boostActive))
         dash();
-})
+});
 
 // If a key is no longer being pressed, set keys array to false
 $(document).keyup(function(e) {
