@@ -21,6 +21,13 @@ Heriot-Watt University, Web Programming, Firehaus team game project. Battle-roya
 3.  If necessary, adjust the `DOMAIN` constant in `Config.php` to reflect the address of the project's root folder on the HTTP server
 4.  Run the bash script `install.sh` from the root of the project
 
+### Chat
+-   A chat server has been created but not implemented into the main index file. In order to run this execute the following:
+
+1.  navigate to assets/chat/
+2.  run "node chatServ.js"
+3.  navigate to http://localhost:3000/
+
 ## Contributors
 
 -   Kyle
