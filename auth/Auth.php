@@ -55,4 +55,21 @@ class Auth
             return false;
     }
 
+    /**
+     * Logs out user if already logged in. R
+     *
+     * @return     boolean  True if logged out || False if not logged in initially
+     */
+    public static function logOut()
+    {
+        if (Auth::loggedIn())
+        {
+            $_SESSION['logged_in'] = '';
+            session_unset();
+            session_destroy();
+            return true;
+        }
+        return false;
+    }
+
 }
