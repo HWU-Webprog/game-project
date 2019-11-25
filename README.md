@@ -17,9 +17,9 @@ Heriot-Watt University, Web Programming, Firehaus team game project. Battle-roya
 
 
 1.  Clone the project to your server
-2.  Run the bash script `install.sh` from the root of the project
-3.  Rename `app/Config.php.example` to `app/Config.php`.
-4.  If necessary, adjust the `DOMAIN` constant in `Config.php` to reflect the address of the project's root folder on the HTTP server.
+2.  Rename `app/Config.php.example` to `app/Config.php`
+3.  If necessary, adjust the `DOMAIN` constant in `Config.php` to reflect the address of the project's root folder on the HTTP server
+4.  Run the bash script `install.sh` from the root of the project
 
 ## Contributors
 
@@ -33,7 +33,7 @@ Heriot-Watt University, Web Programming, Firehaus team game project. Battle-roya
 
 -   Please ensure that your editor has `.editorconfig` support! An `.editorconfig` file is provided to ensure code consitency.
 
-## Packages
+## Packages Used
 
 -   [FontAwesome](https://fontawesome.com/)
 -   [myclabs/php-enum](https://github.com/myclabs/php-enum)
