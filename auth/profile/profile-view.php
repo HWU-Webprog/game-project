@@ -30,7 +30,7 @@ else
     <div id="leftWrapper">
         <div class="imageContainer" id="profileImageContainer">
             <!--Javascript to set the image to what was saved-->
-            <img src="../../assets/img/Woolooloo.jpg" alt="ProfilePic">
+            <img src="../../assets/img/profile.png" alt="ProfilePic">
             <div class="editButton" id="profileImageContainerEdit">
                 <img src="../../assets/img/edit-button-512.png" alt="Edit Image">
                 <!--Javascript to Change the image-->
@@ -38,7 +38,10 @@ else
         </div>
 
         <div class="textDiv" id="profileDescription">
-                <?= $profile->bio ?>
+                <h3>
+                <i>About me</i>
+                </h3>
+                <p><?= $profile->bio ?></p>
             <div class="editButton" id="profileDescriptionEdit">
                 <img src="../../assets/img/edit-button-512.png" alt="Edit Description">
                 <!--Javascript to Edit the description-->

@@ -9,8 +9,17 @@ Heriot-Watt University, Web Programming, Firehaus team game project. Battle-roya
 
 ## Installation
 
-Currently there is no deployment script. Please see the instructions [here](https://heriotwatt-my.sharepoint.com/:w:/g/personal/cws3_hw_ac_uk/EcqsYNMDPJhCsbts5Huirh8BCjWC9EcVtLcZHYnvN4rpHA?e=OLDqoa)
-for information on how to install the project.
+### Requirements
+
+-   PHP 7.x
+-   SQLite PHP extension
+-   Composer
+
+
+1.  Clone the project to your server
+2.  Run the bash script `install.sh` from the root of the project
+3.  Rename `app/Config.php.example` to `app/Config.php`.
+4.  If necessary, adjust the `DOMAIN` constant in `Config.php` to reflect the address of the project's root folder on the HTTP server.
 
 ## Contributors
 
