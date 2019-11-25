@@ -7,7 +7,6 @@ use \Auth\Auth as Auth;
 $userName = Auth::loggedIn();
 
 ?>
-
     <div id="main">
         <h1>Firehaus</h1>
         <?php if ($userName) { ?>
@@ -25,7 +24,7 @@ $userName = Auth::loggedIn();
                 <option value="Yellow">Yellow</option>
             </select>
         </p>
-        <p><button type="button" onclick="createplayer()">Join </button></p>
+        <p><button type="button" id="joinGame" onclick="start()">Join </button></p>
         <hr>
 
         <form action="<?= \App\Config::DOMAIN ?>/auth/profile/profile-view.php" method="GET">

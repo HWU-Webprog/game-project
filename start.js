@@ -4,20 +4,20 @@
  */
 var testplayer
 
-
-/**
- * Function to draw the canvas and draw a player object
- */
-function start() {
-    canvas.start();
-    // Calls the Username and Colour from the Starts screen text box and drop down menu
-    var testplayer = new Player(document.getElementById('USERNAME').value, document.getElementById('COLOUR').value, 50, 50);
-    testplayer.draw();
-}
+// When the join game button is pressed, the menu is hid
+$(document).ready( () => {
+    $("#joinGame").click(function(){
+        // hides the menu div
+        $("#main").hide();
+        // creates a player object using the values in the USERNAME textfield and COLOUR selection form. Size is standard 50 pixels
+        testplayer = new Player($("#USERNAME").val(), $("#COLOUR").val() , PLAYER_DIMENSIONS, PLAYER_DIMENSIONS);
+        canvas.start();
+        testplayer.draw();
+    })
+})
 
 // Updates the canvas every 20 ms
 function update() {
     canvas.clear();
-    testplayer.y -= 1;
     testplayer.draw();
 }
