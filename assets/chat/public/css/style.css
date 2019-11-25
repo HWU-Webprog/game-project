@@ -1,0 +1,315 @@
+h2 {
+    color: red;
+}
+
+body {
+    font-family: arial;
+    font-size: 20px;
+    color: black;
+    background: black url('../img/background.png');
+    background-repeat: repeat;
+    text-align: center;
+    line-height: normal;
+    margin: 0;
+}
+
+input, button, select {
+    font-size: 20px;
+    color: white;
+    background-color: grey;
+}
+
+input[type=text] {
+    width: 30%;
+}
+
+#main {
+    background-color: lightgrey;
+    border-style: solid;
+    border-width: thick;
+    border-color: grey;
+    width: 40%;
+    margin: 10% 30% 10% 30%;
+    padding: 10px 0 10px 0;
+    border-radius: 30px;
+    /* box-shadow: 5px 5px 2px 2px - dosnt work on black backround, add if lighter bg is used*/
+    box-shadow: inset 0 0 7px 4px;
+    /*transform: rotate(-15deg);*/
+    /*transform: skew(20deg,10deg);*/
+}
+
+a:link, a:visited, a:hover {
+    color: black;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: red;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.imageContainer{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    overflow: hidden;
+    margin: 10px 10px 10px 10px;
+}
+
+.textDiv{
+    background-color: lightgrey;
+    border-style: solid;
+    border-width: thick;
+    border-color: grey;
+    margin: 10px 10px 10px 10px;
+    padding: 10px 0 10px 0;
+    border-radius: 30px;
+    box-shadow: inset 0 0 7px 4px;
+}
+
+.editButton{
+    display: none;
+}
+
+.logContainer{
+    background-color: lightgrey;
+    border-style: solid;
+    border-width: thick;
+    border-color: grey;
+    margin: 10px 10px 10px 10px;
+    padding: 10px 0 10px 0;
+    border-radius: 30px;
+    box-shadow: inset 0 0 7px 4px;
+}
+
+.log{
+    background-color: lightgrey;
+    border-style: solid;
+    border-width: thick;
+    border-color: grey;
+    margin: 10px 10px 10px 10px;
+    padding: 10px 0 10px 0;
+    border-radius: 30px;
+    box-shadow: inset 0 0 7px 4px;
+}
+
+.textDialog{
+    background-color: lightgrey;
+    border-style: solid;
+    border-width: thick;
+    border-color: grey;
+    margin-top: 20px;
+    padding: 10px 0 45px 0;
+    border-radius: 30px;
+    box-shadow: inset 0 0 7px 4px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    display: flexbox;
+}
+
+.formWrapper{
+    text-align: center;
+    display: block;
+    height:auto;
+    bottom:0;
+    top:0;
+    left:0;
+    right:0;
+    margin-top:10px;
+    margin-bottom:50px;
+    margin-right:25px;
+    margin-left:20px;
+    align-content: center;
+}
+
+.formWrapperLeft{
+    display: inline-block;
+    text-align: left;
+    font-size: 23.5px;
+}
+
+.formWrapperRight{
+    display: inline-block;
+    text-align: left;
+
+}
+
+.formField{
+    /* Attempts to unify the length of the input go here*/
+    height: 100%;
+    width: 100%;
+}
+
+#leftWrapper{
+    width: 20%;
+    float: left;
+}
+
+#rightWrapper{
+    width: 75%;
+    float: left;
+}
+
+#profileImageContainer{
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+#profileImageContainerEdit{
+    width: 10%;
+    height: auto    ;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+#profileImageContainer:hover #profileImageContainerEdit{
+    display: block;
+}
+
+#profileHeader{
+    width: 100%;
+}
+
+#profileDescription{
+    position: relative;
+    width: 100%;
+}
+
+#profileDescriptionEdit{
+    width: 10%;
+    height: auto;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+#profileDescription:hover #profileDescriptionEdit{
+    display: block;
+}
+
+#profileLogContainer{
+    width: 100%;
+}
+
+.header {
+    width: 100%;
+    height: 55px;
+    background-color: #353a3f;
+    padding-top: 2px;
+    overflow: hidden;
+    font-size: 18px;
+}
+
+.header p {
+    text-align: left;
+    color: #fff;
+}
+
+.menu-left {
+    padding-left: 30px;
+    float: left;
+}
+
+.menu-right {
+    padding-right: 30px;
+    float: right;
+}
+
+a.nav-link {
+    color: #eee;
+    text-decoration: none;
+}
+
+a:hover.nav-link {
+    color: #bbb;
+}
+
+.icon-padding-right {
+    margin-left: 2px;
+}
+
+.icon-padding-left {
+    margin-right: 2px;
+}
+
+.chatlog{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    text-align: left;
+    margin: 1px;
+    overflow-y: auto;
+}
+
+.message {
+    padding: 10px;
+}
+
+#chatWrapper {
+    font-family: arial;
+    font-size: 11px;
+    color: black;
+    text-align: center;
+    line-height: normal;
+
+    position:fixed;
+    right: 0%;
+    bottom: 0%;
+
+    height: 40%;
+    width: 40%;
+
+    background-color: lightgrey;
+    opacity: 0.6;
+    border-style: solid;
+    border-width: thick;
+    border-color: grey;
+    margin: 10px 10px 10px 10px;
+    padding: 10px 0 10px 0;
+    border-radius: 30px;
+    box-shadow: inset 0 0 7px 4px;
+}
+
+#chatWrapper:hover{
+    opacity: 1;
+}
+
+#chatContainer {
+
+    display: block;
+    position:absolute;
+    height:auto;
+    bottom:0;
+    top:0;
+    left:0;
+    right:0;
+    margin-top:10px;
+    margin-bottom:50px;
+    margin-right:25px;
+    margin-left:20px;
+
+}
+
+#messageField {
+    display: flex;
+    margin-top: 5px;
+    height: 10px;
+    width: 100%;
+    overflow: hidden;
+}
+
+#messageInput{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}

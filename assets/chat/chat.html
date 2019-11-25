@@ -15,10 +15,6 @@
         <!--This chatContainer div holds everything mechanically important to the function of the chat. It is also needed for the CSS to work. Change the divs within-->
             <div class="chatlog">
             <!--This Chatlog div is to hold many message class divs that are generated as you get an incomming message-->
-                <div class="message">(HH:MM:SS) User: You Have Entered the Chat </div>
-                <!--This is an idea of how one can use a message div to show joining the chat without changing much. Just send a message on join (or something idk)-->
-                <div class="message">(HH:MM:SS) User: Message</div>
-                <!--This is an example of a message div-->
             </div>
 
             <div id="messageFields">
@@ -48,7 +44,8 @@
             // chat message event recieved from server
             socket.on('chat message', (msg) => {
                 // append to the chatlog the content in a list
-                $('.chatlog').append($('<li>').text(msg));
+                var newMessage = new Message("test", msg);
+                $('.chatlog').append($('<div>').addClass("message").text(newMessage.out() + "\n"));
             });
             // user connected event recieved from server
             socket.on('user connected', () => {
