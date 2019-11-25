@@ -25,8 +25,15 @@ class Kill
         return $this->victim;
     }
 
+    public function getKiller()
+    {
+        return $this->killer;
+    }
+
     public function getTime()
     {
-        return new DateTime($this->timestamp);
+        $date = new \DateTime();
+        $date->setTimestamp(intval($this->timestamp));
+        return $date;
     }
 }

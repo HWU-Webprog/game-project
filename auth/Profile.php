@@ -19,6 +19,7 @@ class Profile
     public $wins;
     public $average_pos;
     public $kills = [];
+    public $deaths = [];
 
     /**
      * Constructs a new instance and connects to database
@@ -47,25 +48,51 @@ class Profile
         $this->name = $data['name'];
         $this->bio = $data['bio'];
         $this->kills = $this->getKills();
+        $this->deaths = $this->getDeaths();
     }
 
     /**
-     * Gets the kills the user has played
+     * Gets the kills where the user is the killer
      *
      * @return     Kill[]  The kills
      */
     public function getKills()
     {
-        $stmt = $this->pdo->prepare('SELECT * FROM "kill_log" WHERE "killer"=:username');
+        $stmt = $this->pdo->prepare('SELECT * FROM "kill_log" WHERE "killer"=:username LIMIT 10');
         $stmt->execute([':username' => $this->username]);
-        $data = $stmt->fetch(\PDO::FETCH_ASSOC);
+        $data = $stmt->fetchAll();
 
         $kills = [];
         if ($data)
         {
-            foreach ($data as $kills)
-                array_push($kills, new Kill($data[0], $data[1], $data[2]));
+            foreach ($data as $kill)
+            {
+                array_push($kills, new Kill($kill[0], $kill[1], $kill[2]));
+            }
             return $kills;
+        }
+        return null;
+    }
+
+    /**
+     * Gets the kills where the user is the victim
+     *
+     * @return     Kill[]  The kills
+     */
+    public function getDeaths()
+    {
+        $stmt = $this->pdo->prepare('SELECT * FROM "kill_log" WHERE "victim"=:username LIMIT 10');
+        $stmt->execute([':username' => $this->username]);
+        $data = $stmt->fetchAll();
+
+        $deaths = [];
+        if ($data)
+        {
+            foreach ($data as $death)
+            {
+                array_push($deaths, new Kill($death[0], $death[1], $death[2]));
+            }
+            return $deaths;
         }
         return null;
     }

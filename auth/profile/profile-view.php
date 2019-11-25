@@ -86,7 +86,19 @@ else
                 <?php foreach ($profile->kills as $kill) { ?>
                     <div class="log">
                         At: <?= $kill->getTime()->format('H:i d/m/Y') ?> |
-                        Victim: <?= $kill->getVictim() ?> |
+                        Victim: <?= $kill->getVictim() ?>
+                    </div>
+                <?php } ?>
+            <?php } ?>
+        </div>
+
+        <div class="textDiv" >
+            Death Feed
+            <?php if ($profile->deaths) { ?><!--Insert Javascript to create .log classes for deaths played from the user's data-->
+                <?php foreach ($profile->deaths as $death) { ?>
+                    <div class="log">
+                        At: <?= $death->getTime()->format('H:i d/m/Y') ?> |
+                        Killer: <?= $death->getKiller() ?>
                     </div>
                 <?php } ?>
             <?php } ?>
