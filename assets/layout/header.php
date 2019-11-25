@@ -52,6 +52,9 @@ function redirect($url)
                 <a class="nav-link" href="<?= App\Config::DOMAIN ?>/auth/profile/profile-view.php">
                     <i class="fas fa-fw fa-user icon-padding-right"></i> Profile
                 </a>
+                <a class="nav-link" href="<?= App\Config::DOMAIN ?>/auth/user/logout.php">
+                    <i class="fas fa-fw fa-sign-out-alt icon-padding-right"></i> Logout
+                </a>
             <?php } ?>
         </p>
     </div>
