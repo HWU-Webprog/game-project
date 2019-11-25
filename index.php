@@ -24,7 +24,7 @@ $userName = Auth::loggedIn();
                 <option value="Yellow">Yellow</option>
             </select>
         </p>
-        <p><button type="button" id="joinGame" onclick="start()">Join </button></p>
+        <p><button type="button" id="joinGame">Join </button></p>
         <hr>
 
         <form action="<?= \App\Config::DOMAIN ?>/auth/profile/profile-view.php" method="GET">
