@@ -63,8 +63,10 @@ class Profile
         $kills = [];
         if ($data)
         {
-            foreach ($data as $kills)
-                array_push($kills, new Kill($data[0], $data[1], $data[2]));
+            foreach ($data as $kill)
+            {
+                array_push($kills, new Kill($kill[0], $kill[1], $kill[2]));
+            }
             return $kills;
         }
         return null;
