@@ -32,6 +32,8 @@ class Kill
 
     public function getTime()
     {
-        return new DateTime($this->timestamp);
+        $date = new \DateTime();
+        $date->setTimestamp(intval($this->timestamp));
+        return $date;
     }
 }
