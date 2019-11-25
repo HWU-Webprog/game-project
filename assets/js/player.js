@@ -3,6 +3,7 @@
  * object that is drawn to the canvas
  */
 
+const PLAYER_DIMENSIONS = 50;
 // variable to hold the keys pressed by user
 var keys = {};
 

@@ -1,11 +1,4 @@
-<?php include 'assets/layout/header.php'; ?>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="assets/js/canvas.js"></script>
-    <script src="assets/js/draw.js"></script>
-    <script src="assets/js/player.js"></script>
-    <script src="start.js"></script>
-    
+<?php include 'assets/layout/header.php'; ?>    
     <div id="main">
         <h1>Firehaus</h1>
         <p>Enter username: <input type="text" placeholder="Username" id="USERNAME"></p>

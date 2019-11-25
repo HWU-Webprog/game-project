@@ -7,12 +7,11 @@ var testplayer
 // When the join game button is pressed, the menu is hid
 $(document).ready( () => {
     $("#joinGame").click(function(){
+        // hides the menu div
         $("#main").hide();
-        var username = $("#USERNAME").val();
-        var color = $("#COLOUR").val();
-        testplayer = new Player(username, color, 50, 50);
+        // creates a player object using the values in the USERNAME textfield and COLOUR selection form. Size is standard 50 pixels
+        testplayer = new Player($("#USERNAME").val(), $("#COLOUR").val() , PLAYER_DIMENSIONS, PLAYER_DIMENSIONS);
         canvas.start();
-        // Calls the Username and Colour from the Starts screen text box and drop down menu (right now just holds test variables)
         testplayer.draw();
     })
 })
