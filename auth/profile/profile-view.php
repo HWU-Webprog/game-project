@@ -38,7 +38,10 @@ else
         </div>
 
         <div class="textDiv" id="profileDescription">
-                <?= $profile->bio ?>
+                <h3>
+                <i>About me</i>
+                </h3>
+                <p><?= $profile->bio ?></p>
             <div class="editButton" id="profileDescriptionEdit">
                 <img src="../../assets/img/edit-button-512.png" alt="Edit Description">
                 <!--Javascript to Edit the description-->
