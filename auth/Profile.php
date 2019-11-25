@@ -19,6 +19,7 @@ class Profile
     public $wins;
     public $average_pos;
     public $kills = [];
+    public $deaths = [];
 
     /**
      * Constructs a new instance and connects to database
@@ -47,18 +48,19 @@ class Profile
         $this->name = $data['name'];
         $this->bio = $data['bio'];
         $this->kills = $this->getKills();
+        $this->deaths = $this->getDeaths();
     }
 
     /**
-     * Gets the kills the user has played
+     * Gets the kills where the user is the killer
      *
      * @return     Kill[]  The kills
      */
     public function getKills()
     {
-        $stmt = $this->pdo->prepare('SELECT * FROM "kill_log" WHERE "killer"=:username');
+        $stmt = $this->pdo->prepare('SELECT * FROM "kill_log" WHERE "killer"=:username LIMIT 10');
         $stmt->execute([':username' => $this->username]);
-        $data = $stmt->fetch(\PDO::FETCH_ASSOC);
+        $data = $stmt->fetchAll();
 
         $kills = [];
         if ($data)
