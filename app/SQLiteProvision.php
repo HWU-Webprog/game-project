@@ -54,6 +54,7 @@ class SQLiteProvision
         $this->pdo->exec('INSERT INTO users("username","name","password", "bio") VALUES("testUser2","Test User2","'.password_hash('test2', PASSWORD_DEFAULT).'", "Enim exercitation magna dolore irure aliqua sit amet commodo eu proident veniam do minim labore dolor nulla voluptate irure esse mollit.")');
         $this->pdo->exec('INSERT INTO kill_log("killer", "victim", "timestamp") VALUES("testUser", "testUser2", '.date('U').')');
         $this->pdo->exec('INSERT INTO kill_log("killer", "victim", "timestamp") VALUES("testUser2", "testUser", '.date('U').')');
+        $this->pdo->exec('INSERT INTO kill_log("killer", "victim", "timestamp") VALUES("testUser2", "testUser", '.date('U').')');
     }
 
     /**
@@ -62,6 +63,7 @@ class SQLiteProvision
     public function dropTables()
     {
         $this->pdo->exec('DROP TABLE IF EXISTS "users"');
+        $this->pdo->exec('DROP TABLE IF EXISTS "kill_log"');
     }
 
     /**
