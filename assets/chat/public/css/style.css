@@ -308,6 +308,6 @@ a:hover.nav-link {
 
 #messageInput{
     height: 100%;
-    width: 100%;
+    width: auto;
     overflow: hidden;
 }
