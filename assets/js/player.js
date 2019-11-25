@@ -67,14 +67,18 @@ function Player(name, color, x, y) {
             // y bounces at: 0 , 480
             // x bounces at: 0 , 480
             if (this.y > 480) {
+                this.y = 480;
                 this.velocityY = -this.velocityY;
             } else if (this.y < 0) {
+                this.y = 0;
                 this.velocityY = -this.velocityY;
             }
 
             if (this.x > 480) {
+                this.x = 480;
                 this.velocityX = -this.velocityX;
             } else if (this.x < 0) {
+                this.x = 0;
                 this.velocityX = -this.velocityX;
             }
 
