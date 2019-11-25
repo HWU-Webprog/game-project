@@ -32,8 +32,8 @@ var canvas = {
         this.canvas.height = 500;
         //Set the context to render 2d objects
         this.context = this.canvas.getContext("2d");
-        //adds the canvas element before the first existing node on the page
-        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        //adds the canvas in its container
+        this.canvas, document.getElementById('canvasContainer').appendChild(this.canvas);
         //Calls the update() function every 20 milliseconds
         this.interval = setInterval(update, 20);
     },

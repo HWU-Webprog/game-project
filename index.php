@@ -7,6 +7,7 @@ use \Auth\Auth as Auth;
 $userName = Auth::loggedIn();
 
 ?>
+    <div id="canvasContainer"></div>
     <div id="main">
         <h1>Firehaus</h1>
         <?php if ($userName) { ?>
