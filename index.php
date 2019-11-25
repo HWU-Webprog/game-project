@@ -11,7 +11,7 @@ $userName = Auth::loggedIn();
     <div id="main">
         <h1>Firehaus</h1>
         <?php if ($userName) { ?>
-            <p>Enter username: <input type="text" value="<?= $userName ?> " id="USERNAME" readonly></p>
+            <p>Your username: <input type="text" value="<?= $userName ?> " id="USERNAME" readonly></p>
         <?php } else { ?>
             <p>Enter username: <input type="text" placeholder="Username" id="USERNAME"></p>
         <?php } ?>
