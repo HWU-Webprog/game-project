@@ -61,6 +61,8 @@ else
             <?php } ?>
             <p id="bio"><?= $profile->bio ?></p>
 
+            <?php if(Auth::loggedIn() == $profile->username)
+            { ?>
             <div class="editButton" id="profileDescriptionEdit">
                 <i class="fas fa-fw fa-edit" onclick="totextarea()"></i>
             </div>
@@ -68,6 +70,7 @@ else
             <form action="" method="POST" style="padding-bottom:20px; text-align:center;" id="bioform">
                 <button id="biobutton" type="submit" style="display:none; text-align:center;">Done &raquo;</button>
             </form>
+            <?php } ?>
         </div>
     </div>
 
