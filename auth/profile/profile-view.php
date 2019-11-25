@@ -30,7 +30,7 @@ else
     <div id="leftWrapper">
         <div class="imageContainer" id="profileImageContainer">
             <!--Javascript to set the image to what was saved-->
-            <img src="../../assets/img/Woolooloo.jpg" alt="ProfilePic">
+            <img src="../../assets/img/profile.png" alt="ProfilePic">
             <div class="editButton" id="profileImageContainerEdit">
                 <img src="../../assets/img/edit-button-512.png" alt="Edit Image">
                 <!--Javascript to Change the image-->
