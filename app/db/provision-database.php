@@ -6,6 +6,8 @@ require __DIR__.'/../../vendor/autoload.php';
 
 use App\SQLiteProvision as SQLiteProvision;
 
+parse_str(implode('&', array_slice($argv, 1)), $_GET);
+
 /**
  * Database provisioning script
  * @author Calum Shepherd
