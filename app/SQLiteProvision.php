@@ -36,7 +36,7 @@ class SQLiteProvision
             'CREATE TABLE IF NOT EXISTS kill_log(
                 "killer" TEXT,
                 "victim" TEXT,
-                "timestamp" DATETIME
+                "timestamp" INTEGER
             )',
         ];
         foreach ($commands as $command) {
@@ -52,6 +52,8 @@ class SQLiteProvision
         // test users
         $this->pdo->exec('INSERT INTO users("username","name","password", "bio") VALUES("testUser","Test User","'.password_hash('test', PASSWORD_DEFAULT).'", "Nulla excepteur ut labore do irure officia ut nisi excepteur sed mollit sed.")');
         $this->pdo->exec('INSERT INTO users("username","name","password", "bio") VALUES("testUser2","Test User2","'.password_hash('test2', PASSWORD_DEFAULT).'", "Enim exercitation magna dolore irure aliqua sit amet commodo eu proident veniam do minim labore dolor nulla voluptate irure esse mollit.")');
+        $this->pdo->exec('INSERT INTO kill_log("killer", "victim", "timestamp") VALUES("testUser", "testUser2", '.date('U').')');
+        $this->pdo->exec('INSERT INTO kill_log("killer", "victim", "timestamp") VALUES("testUser2", "testUser", '.date('U').')');
     }
 
     /**
@@ -71,7 +73,7 @@ class SQLiteProvision
         {
             $this->createTables();
             $this->insertTestData();
-            echo 'Database provisioned up!\n';
+            echo 'Database provisioned up! \n';
         }
         catch (Exception $e)
         {
@@ -85,6 +87,6 @@ class SQLiteProvision
     public function down()
     {
         $this->dropTables();
-        echo 'Database provisioned down!\n';
+        echo 'Database provisioned down! \n';
     }
 }
